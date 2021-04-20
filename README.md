@@ -10,4 +10,11 @@ Universe è una pagina web destinata agli studenti universitari che permette lor
 ## Sito web
 E' possibile accedere alla pagina all'indirizzo http://185.135.102.27/ltw
 
-##Tecnologie impiegate
+## Tecnologie impiegate
+- HTML: per la struttura della pagina web
+- Bootstrap: per la realizzazione di alcune strutture e per rendere il layout responsive
+- CSS: per la grafica della pagina web
+- JavaScrip: per 
+- Vue: 
+
+## Membri del team
