@@ -15,6 +15,7 @@ E' possibile accedere alla pagina all'indirizzo http://185.135.102.27/ltw
 - Bootstrap: per la realizzazione di alcune strutture e per rendere il layout responsive
 - CSS: per la grafica della pagina web
 - JavaScrip: per 
-- Vue: 
+- Vue:
+- PHP: per interagire con il database MySQL
 
-## Membri del team
+## Membri del team 
