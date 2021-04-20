@@ -1,0 +1,122 @@
+body {
+  height: 100vh;
+  background-image: linear-gradient(to right top, #7c74ea, #787fec, #778aec, #7994ec, #7d9dea, #86a3eb, #8ea8ed, #96aeee, #a2b2f3, #adb6f7, #b8bbfb, #c3bfff);
+}
+
+.home-cont {
+  padding-top: 20%;
+  height: 100vh;
+  vertical-align: middle;
+}
+
+.navbar {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.homesx {
+
+
+}
+
+.homedx {
+
+
+}
+
+.log {
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+.form-group {
+  padding-top:20px;
+}
+
+.prefix {
+  width: 100px;
+  background: #e1dfff;
+  border-top-left-radius:
+}
+
+.suffix {
+  width: 50px;
+  background: #ffffff;
+  border-top-right-radius:15%;
+  border-bottom-right-radius:15%;
+  border-top-left-radius:0%;
+  border-bottom-left-radius:0%;
+}
+
+
+.check {
+  justify-content: flex-start;
+  margin-top: 5px;
+}
+
+.dark-btn {
+  background-color: #7c74ea;
+  color: white;
+}
+
+.dark-btn:hover {
+  background-color: #c3bfff;
+  color: #5751a4;
+}
+
+.dark-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(226, 224, 255, 0.8);
+}
+
+.navbar-toggler {
+  background: #7c74ea;
+}
+
+.form-control:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(226, 224, 255, 0.8);
+}
+
+.testo {
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px #5751a4;
+}
+
+a {
+  color: #7c74ea;
+  font-weight: bold;
+}
+
+a.hover {
+  color: #5751a4;
+}
+
+a.visited {
+  color: #5751a4;
+}
+
+#grp-psw {
+  margin-bottom: 10px;
+}
+
+.reg-check {
+  width: 20px;
+  height: 20px;
+}
+
+#nome-check {
+  display: none;
+}
+
+#cognome-check {
+
+}
+
+#mail-check {
+  display: none;
+}
+
+#psw-check {
+  display: none;
+}
