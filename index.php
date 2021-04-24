@@ -19,7 +19,8 @@ https://coolors.co/feecf6-ebebeb-99087e-fbc5e5-c20a75
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/home3.css" type="text/css">
   <script src="js/home2.js"></script>
-  <?php include('php/connect.php'); ?>
+  <?php include('php/connect.php'); ?> <!---mychange
+-->
   
 
 </head>
