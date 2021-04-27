@@ -28,8 +28,8 @@ https://coolors.co/feecf6-ebebeb-99087e-fbc5e5-c20a75
 
     <nav class="navbar navbar-expand-sm navbar-light fixed-top" >
         <a class="navbar-brand justify-align-start" style="width: 60%"  href="#" >
-        <img src="link-icon.png" alt="" width="30" height="30"  class="d-inline-block align-text-top">
-        LTW
+        <img src="images/logo-viola-piccolo.png" alt="" width="119" height="30"  class="d-inline-block align-text-top">
+        
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,13 +51,13 @@ https://coolors.co/feecf6-ebebeb-99087e-fbc5e5-c20a75
 
         </ul>
     -->
-            <div class="d-flex justify-content-center mt-md-0 mt-3">
-                <form class="d-flex">
+            <div class="d-flex justify-content-right mt-md-0 mt-3">
+                <!--<form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <a style="width: 5px;"></a>
                     <button class="btn dark-btn" type="submit">Cerca</button>
-                </form>
-                <a style="width: 20px;"></a>
+                </form> -->
+                <a style="width: 300px; height: 0px;"></a>
                 <button class="btn dark-btn" type="submit">Accedi</button>
                 <a style="width: 5px;"></a>
                 <button class="btn dark-btn" type="submit" onclick="$('#regModal').modal('toggle')">Registrati</button>
