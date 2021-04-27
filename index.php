@@ -19,7 +19,8 @@ https://coolors.co/feecf6-ebebeb-99087e-fbc5e5-c20a75
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/home3.css" type="text/css">
   <script src="js/home2.js"></script>
-  <?php include('php/connect.php'); ?>
+  <script src="js/login.js"></script>
+  <script src="js/registrazione.js"></script>
   
 
 </head>
@@ -73,15 +74,17 @@ https://coolors.co/feecf6-ebebeb-99087e-fbc5e5-c20a75
 
                     <div class="col-8 text-center">
                         <div class="border rounded log text-center">
-                            <form method="POST">
+                            <form id="login-form" method="GET" >
                                 <div class="form-group">
-                                    <input type="email"   class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="E-mail">
+                                    <div id="message"></div>
+                                    <input type="text" id="mail-login" name="mail-login" class="form-control" id="mail-login" aria-describedby="emailHelp" placeholder="E-mail">
                                     <br>
-                                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                                    <input type="password" id="psw-login" name="psw-login" class="form-control" id="psw-login" placeholder="Password">
                                 </div>
                                 <span>Hai dimenticato la password? <a href="www.google.it">Clicca qui</a></span>
                                 <br><br>
-                                <button id="accedi" type="Accedi" name="accedi" class="btn dark-btn">Accedi</button>
+                                
+                                <button id="btn-login" type="button" name="btn-login" class="btn dark-btn" onClick="login()">Accedi</button>
                             </form>
                         </div>
                         <br>
@@ -99,14 +102,14 @@ https://coolors.co/feecf6-ebebeb-99087e-fbc5e5-c20a75
                                     </div>
                                     
                                     <div class="modal-body">
-                                        <form method="post" action="php/registrazione.php">
+                                        <form method="post"  onSubmit="">
 
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <div class="input-group-prepend" >
                                                         <span class="input-group-text prefix">Nome</span>
                                                     </div>
-                                                    <input type="text" aria-label="Nome" placeholder="Nome" class="form-control" id="input-nome" name="nome" value="<?php echo $nome; ?>"  onblur="verificatoNome()">
+                                                    <input type="text" aria-label="Nome" placeholder="Nome" class="form-control" name="nome" id="nome-reg" value="<?php echo $nome; ?>"  onblur="verificatoNome()">
                                                     <span class="input-group-text suffix"><img class="reg-check" id="nome-check" src="images/checked.png"></img></span>
                                                 </div>
                                                 <br>
@@ -114,7 +117,7 @@ https://coolors.co/feecf6-ebebeb-99087e-fbc5e5-c20a75
                                                     <div class="input-group-prepend" >
                                                         <span class="input-group-text prefix">Cognome</span>
                                                     </div>
-                                                    <input type="text" aria-label="Cognome" placeholder="Cognome" class="form-control" name="cognome" value="<?php echo $cognome; ?>" onblur="verificatoCognome()">
+                                                    <input type="text" aria-label="Cognome" placeholder="Cognome" class="form-control" name="cognome" id="cognome-reg" value="<?php echo $cognome; ?>" onblur="verificatoCognome()">
                                                     <span class="input-group-text suffix"><img class="reg-check" id="cognome-check" src="images/checked.png"></img></span>
                                                 </div> 
                                                 <br>
@@ -123,7 +126,7 @@ https://coolors.co/feecf6-ebebeb-99087e-fbc5e5-c20a75
                                                     <div class="input-group-prepend" >
                                                         <span class="input-group-text prefix">E-Mail</span>
                                                     </div>
-                                                    <input type="text" aria-label="E-Mail" placeholder="E-mail" class="form-control" name="mail" value="<?php echo $mail; ?>" onblur="verificatoMail()">
+                                                    <input type="text" aria-label="E-Mail" placeholder="E-mail" class="form-control" name="mail" id="mail-reg" value="<?php echo $mail; ?>" onblur="verificatoMail()">
                                                     <span class="input-group-text suffix"><img class="reg-check" id="mail-check" src="images/checked.png"></img></span>
                                                 </div>
                                                 <br>
@@ -132,7 +135,7 @@ https://coolors.co/feecf6-ebebeb-99087e-fbc5e5-c20a75
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text prefix">Password</span>
                                                     </div>
-                                                    <input type="password" aria-label="Password" placeholder="Password" class="form-control" name="psw" value="<?php echo $psw; ?>" onblur="verificatoPsw()">
+                                                    <input type="password" aria-label="Password" placeholder="Password" class="form-control" name="psw" id="psw-reg" value="<?php echo $psw; ?>" onblur="verificatoPsw()">
                                                     <span class="input-group-text suffix"><img class="reg-check" id="psw-check" src="images/checked.png"></img></span>
                                                 </div>
 
@@ -140,15 +143,15 @@ https://coolors.co/feecf6-ebebeb-99087e-fbc5e5-c20a75
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text prefix">Password</span>
                                                     </div>
-                                                    <input type="password" aria-label="Password" placeholder="Conferma password" class="form-control" name="psw-conf" value="<?php echo $psw2; ?>" onblur="verificatoPswConf()">
+                                                    <input type="password" aria-label="Password" placeholder="Conferma password" class="form-control" name="psw-conf" id="psw-reg-conf" value="<?php echo $psw2; ?>" onblur="verificatoPswConf()">
                                                     <span class="input-group-text suffix"><img class="reg-check" id="psw-check-conf" src="images/checked.png"></img></span>
                                                 </div>
 
-                                                <span class="check"><input type="checkbox" class="form-check-input" id="accettoCheck">Accetto le condizioni d'uso di questa pagina web</span>
+                                                <div><input type="checkbox" class="form-check-input" id="accettoCheck"><span id="checktext">Accetto le condizioni d'uso di questa pagina web</span></div>
                                             </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" name="registrati" class="btn dark-btn" onclick="">Registrati</button>
+                                        <button type="button" name="registrati" class="btn dark-btn" onClick="registrazione()" >Registrati</button>
                                     </div>
                                 </form>
 
