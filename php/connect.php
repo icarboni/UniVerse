@@ -1,6 +1,6 @@
 <?php
 session_start();
-$servername = "185.135.102.27";
+$servername = "localhost";
 $username = "ilenia";
 $password = "Ilenia99!";
 $db = "ltw";
