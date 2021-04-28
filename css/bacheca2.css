@@ -1,0 +1,70 @@
+.progress {
+    height: 30px;
+
+}
+
+.progress-bar-custom {
+    background-color: #7c74ea;
+    width: 50%;
+  }
+  
+  .carte-interne {
+      background: #e1dfff;
+  }
+
+  .main {
+      border: white;
+  }
+
+
+  .crediti {
+      display: inline-block;
+      align-items: center;
+      
+  }
+
+  #ncred {
+      color:#7c74ea;
+      font-size: 30pt;
+      display: inline-block;
+      font-weight: 900;
+      font-family: 'Montserrat', sans-serif;
+  }
+  #totcred {
+      color: #5751a4;
+      font-size: 20pt;
+      display: inline-block;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+  }
+
+  .voto {
+    background-color:#7c74ea;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: white;
+    font-size: 12pt;
+    display: inline-block;
+  }
+
+  .nome-esame {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+  }
+
+  .info-esame {
+      display: inline-block;
+  }
+
+  .esame-gruppo {
+      align-items: center;
+  }
+
+  .prof {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9pt;
+  }
+
+  .media {
+    align-items: center;
+  }
