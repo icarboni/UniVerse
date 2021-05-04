@@ -16,7 +16,7 @@ function registrazione() {
         
         if (this.readyState == 4 && this.status == 200) {
         if (this.responseText==1) {
-           window.location.href = "pages/bacheca.php";
+           window.location.href = "pages/box.php";
         } 
         //else document.getElementById("message").innerHTML = "Mail o password non corretti.<br>";
             

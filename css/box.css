@@ -1,3 +1,15 @@
+/* this is needed to make the content scrollable on larger screens */
+@media (min-width: 576px) {
+  .h-sm-100 {
+      height: 100%;
+  }
+}
+
+.txt {
+  padding-left: 10px;
+}
+
+
 .navbar {
     background: rgba(255, 255, 255, 0.5);
   }
@@ -10,6 +22,10 @@
     height: 30px;
 }
 
+
+
+/*
+
 #body-row {
     margin-left:0;
     margin-right:0;
@@ -20,7 +36,7 @@
     padding: 0;
 }
 
-/* Sidebar sizes when expanded and expanded */
+
 .sidebar-expanded {
     width: 230px;
 }
@@ -28,13 +44,12 @@
     width: 60px;
 }
 
-/* Menu item*/
 #sidebar-container .list-group a {
     height: 50px;
     color: white;
 }
 
-/* Submenu item*/
+
 #sidebar-container .list-group .sidebar-submenu a {
     height: 45px;
     padding-left: 30px;
@@ -43,7 +58,7 @@
     font-size: 0.9rem;
 }
 
-/* Separators */
+
 .sidebar-separator-title {
     background-color: #333;
     height: 35px;
@@ -57,7 +72,7 @@
     height: 60px;
 }
 
-/* Closed submenu icon */
+
 #sidebar-container .list-group .list-group-item[aria-expanded="false"] .submenu-icon::after {
   content: " \f0d7";
   font-family: FontAwesome;
@@ -65,7 +80,7 @@
   text-align: right;
   padding-left: 10px;
 }
-/* Opened submenu icon */
+
 #sidebar-container .list-group .list-group-item[aria-expanded="true"] .submenu-icon::after {
   content: " \f0da";
   font-family: FontAwesome;
@@ -74,7 +89,7 @@
   padding-left: 10px;
 }
 
-
+*/
 
 
 

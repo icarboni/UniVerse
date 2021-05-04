@@ -5,9 +5,17 @@
 
 .progress-bar-custom {
     background-color: #7c74ea;
-    width: 50%;
+    
+    
   }
   
+
+
+.rec {
+    background-color: #c3bfff;
+    color:white;
+}
+
   .carte-interne {
       background: #e1dfff;
   }
@@ -20,7 +28,13 @@
   .crediti {
       display: inline-block;
       align-items: center;
+  }
+
+  .cfu {
       
+      padding-right: 40px;;
+      justify-items: right;
+
   }
 
   #ncred {
@@ -45,6 +59,8 @@
     color: white;
     font-size: 12pt;
     display: inline-block;
+    width: 40px;
+    
   }
 
   .nome-esame {
