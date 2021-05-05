@@ -20,3 +20,8 @@ Per la realizzazione del progetto sono stati usati:
 - PHP: per interagire con il database MySQL
 
 ## Membri del team 
+
+
+Codice sidebar originale:
+https://www.codeply.com/p/Nkp8O77PFS
+
