@@ -1,48 +1,3 @@
-<?php
-    session_start();
-    
-    if(!isset($_SESSION["mail"])) {
-        header("Location: ./../index.php");
-        } else {
-            
-            $servername = "localhost";
-            $username = "ilenia";
-            $password = "Ilenia99!";
-            $db = "ltw";
-            
-            // Create connection
-            $conn = new mysqli($servername, $username, $password, $db);
-            
-            // Check connection
-            if ($conn->connect_error) {
-            
-            die("Connection failed: " . $conn->connect_error);
-            }
-    
-            $mail = $_SESSION["mail"];
-            $sql_utente = "SELECT * FROM utenti WHERE mail = '$mail' " ;
-            $result = $conn->query($sql_utente);
-            if ($result->num_rows <1) {
-                header("Location: ./../index.php");
-            } else {
-
-                $utente = $result->fetch_assoc();
-                $cod_utente = $utente['cod_utente'];
-                $sql_corso = "SELECT * FROM corso JOIN iscrizione WHERE iscrizione.cod_utente = '$cod_utente' " ;
-                $result = $conn->query($sql_corso);
-
-                if ($result->num_rows <1) {
-                    header("Location: ./iscrizione.php");
-                } else {
-    
-                    $corso = $result->fetch_assoc();
-
-                    $sql_esami = "SELECT * FROM verbalizzazioni, esami WHERE verbalizzazioni.utente = '$cod_utente' and verbalizzazioni.esame = esami.cod_esame " ;
-                    $esami = $conn->query($sql_esami);
-
-    ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +7,7 @@
    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
+    <script src="//code.jquery.com/jquery-3.5.0.js"></script>
    
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
@@ -64,6 +19,51 @@
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">  
+
+  <script> 
+    function bacheca() {
+        $(document).ready(function(){
+        $('#internoBox').load('./bacheca.php');
+                });
+        }
+
+        function iscrizione() {
+        $(document).ready(function(){
+        $('#internoBox').load('./iscrizione.php');
+                });
+        }
+    </script>
+
+<?php
+    session_start();
+    
+    if(!isset($_SESSION["mail"])) {
+        header("Location: ./../index.php");
+        } else {
+            
+            include "./../php/connect.php";
+            
+            $mail = $_SESSION["mail"];
+            $sql_utente = "SELECT * FROM utenti WHERE mail = '$mail' " ;
+            $result = $conn->query($sql_utente);
+            if ($result->num_rows <1) {
+                header("Location: ./index.php");
+            } else {
+                
+                $utente = $result->fetch_assoc();
+                $cod_utente = $utente['cod_utente'];
+                $_SESSION['cod_utente'] = $cod_utente;
+                $_SESSION['nome'] = $utente['nome'];
+                
+                $sql_corso = "SELECT * FROM corso, iscrizione WHERE iscrizione.cod_utente = '$cod_utente' and  iscrizione.corso = corso.cod_corso" ;
+                $result = $conn->query($sql_corso);
+                
+                if ($result->num_rows >= 1) {
+                    echo "<script>bacheca();</script>";
+                  
+                } else echo "<script>iscrizione();</script>";
+    ?>
+
 </head>
 <body>
 
@@ -81,31 +81,31 @@
                 </a>
                 <ul class="nav nav-pills flex-lg-column flex-row flex-nowrap flex-shrink-1 flex-lg-grow-0 flex-grow-1 mb-lg-auto mb-0 justify-content-center align-items-center align-items-lg-start" id="menu">
                 <li class="nav-item">
-                        <a href="#" class="nav-link px-lg-0 px-2">
+                        <a onClick="bacheca()" class="nav-link px-lg-0 px-2">
                         <i class="bi-house-fill"></i><span  class="ms-1 d-none d-lg-inline txt nav-txt">Bacheca</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="#" class="nav-link px-lg-0 px-2">
+                        <a onClick="carriera()" class="nav-link px-lg-0 px-2">
                         <i class="icons bi-ui-checks"></i><span  class="ms-1 d-none d-lg-inline txt nav-txt">Carriera</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="#" class="nav-link px-lg-0 px-2">
+                        <a onClick="orario()" class="nav-link px-lg-0 px-2">
                             <i class="icons bi-clock-fill"></i><span class="ms-1 d-none d-lg-inline txt nav-txt">Orario</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="#" class="nav-link px-lg-0 px-2">
+                        <a onClick="organizzazione()" class="nav-link px-lg-0 px-2">
                             <i class="icons bi-calendar-event-fill"></i><span  class="ms-1 d-none d-lg-inline txt nav-txt">Organizzazione</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="#" class="nav-link px-lg-0 px-2">
+                        <a onClick="impostazioni()" class="nav-link px-lg-0 px-2">
                             <i class="icons bi-gear-fill"></i><span  class="ms-1 d-none d-lg-inline txt nav-txt">Impostazioni</span>
                         </a>
                     </li>
@@ -126,7 +126,7 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Esci</a></li>
+                                <li><a class="dropdown-item" href="logout.php">Esci</a></li>
                             </ul>
                 </div>
 
@@ -136,8 +136,10 @@
         </div>
         <div class="col d-flex flex-column h-100">
             <main class="row overflow-scroll">
-                <div class="col pt-4">
-                <?php include "bacheca.php"; ?>
+                <div id="internoBox" class="col pt-4">
+                    
+                    
+                    
                 </div>
             </main>
             
@@ -149,7 +151,7 @@
 </html>
 
 <?php
-            }
+            
         }
 }
 ?>

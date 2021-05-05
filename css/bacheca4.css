@@ -3,13 +3,45 @@
 
 }
 
+.ins {
+  justify-content: center;
+  width: 100px;
+}
+
 .progress-bar-custom {
     background-color: #7c74ea;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+.select {
+    width: 40vh;;
     
-    
+}
+  
+#iscrizione {
+    float: right;
+    padding-right: 150px;;
+}
+
+  .dark-btn {
+    background-color: #7c74ea;
+    color: white;
   }
   
-
+  .dark-btn:hover {
+    background-color: #c3bfff;
+    color: #5751a4;
+  }
+  
+  .dark-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3 px rgba(226, 224, 255, 0.8);
+  }
 
 .rec {
     background-color: #c3bfff;
