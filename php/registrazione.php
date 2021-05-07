@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $mail_err="";
 
 $nome = $_POST['nome'];
@@ -19,6 +19,7 @@ $psw = $_POST['psw'];
 
         $sql2 = "INSERT INTO utenti (nome, cognome, mail, psw) VALUES ('$nome', '$cognome', '$mail', '$psw')";
         if ($conn->query($sql2) === TRUE) {
+            $_SESSION['mail']= $mail;
             echo "1";
         } else echo "0";
     }
