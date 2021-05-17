@@ -44,10 +44,9 @@
                 Esami da svolgere
             </button>
         </div>
-
-        <div class="row row-cols-3 mx-md-4" id="Esami1" style="display:none">
+        <div class="row" id="Esami1" style="display:none">
             <?php include "../php/connect.php";
-            $u = (int)$_SESSION['cod_utente']; 
+            $u = (int)$_SESSION['cod_utente'];
             $sql = "SELECT * FROM esami WHERE esami.anno = 1 ";
             $res1 = $conn->query($sql);
              while($row = $res1->fetch_assoc()) {
@@ -63,9 +62,8 @@
              }
             ?>
         </div>
-        <div class="row row-cols-3 mx-md-4" id="Esami2" style="display:none">
+        <div class="row" id="Esami2" style="display:none">
             <?php
-            $u = (int)$_SESSION['cod_utente'];
             $sql = "SELECT * FROM esami WHERE esami.anno = 2 ";
             $res2 = $conn->query($sql);
              while($row = $res2->fetch_assoc()) {
@@ -81,9 +79,8 @@
              }
             ?> 
         </div> 
-        <div class="row row-cols-3 mx-md-4" id="Esami3" style="display:none">
+        <div class="row" id="Esami3" style="display:none">
             <?php
-            $u = (int)$_SESSION['cod_utente'];
             $sql = "SELECT * FROM esami WHERE esami.anno = 3 ";
             $res3 = $conn->query($sql);
              while($row = $res3->fetch_assoc()) {
@@ -99,9 +96,9 @@
              }
             ?>
         </div>
-        <div class="row row-cols-3 mx-md-4" id="Esamidone">
+        <div class="row" id="Esamidone">
             <?php
-            $u = (int)$_SESSION['cod_utente']; 
+        
             $sql = "SELECT * FROM esami, verbalizzazioni WHERE esami.cod_esame = verbalizzazioni.esame and verbalizzazioni.utente = $u";
             $res3 = $conn->query($sql);
             if ($res3->num_rows == 0) echo "<b><br><h2> Non hai svolto alcun Esame <h2> <h5> Prova ad inserire qualcuno tra gli 'Esami da svolgere'<h5>";
@@ -114,9 +111,8 @@
              } 
             ?> 
         </div>
-        <div class="row row-cols-3 mx-md-4" id="Esamitodo" style="display:none">
+        <div class="row" id="Esamitodo" style="display:none">
             <?php
-            $u = (int)$_SESSION['cod_utente']; 
             $sql = "SELECT * FROM esami WHERE esami.cod_esame NOT IN (SELECT cod_esame FROM esami JOIN verbalizzazioni ON esami.cod_esame=verbalizzazioni.esame WHERE utente=$u)";
             $res3 = $conn->query($sql);
             if ($res3->num_rows == 0) echo "<b><br><h2> Hai svolto tutti gli esami, Complimenti! <h2>";
@@ -130,11 +126,11 @@
             ?>
         </div>
 
-        <div class="modal fade" id="inserisciEsame" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal fade" id="inserisciEsame" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticCarrierLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Inserisci Esame in Carriera</h5>
+            <h5 class="modal-title" id="staticCarrierLabel">Inserisci Esame in Carriera</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
