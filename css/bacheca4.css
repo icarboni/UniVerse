@@ -1,0 +1,118 @@
+.progress {
+    height: 30px;
+
+}
+
+.ins {
+  justify-content: center;
+  width: 100px;
+}
+
+.progress-bar-custom {
+    background-color: #7c74ea;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+.select {
+    width: 40vh;;
+    
+}
+  
+#iscrizione {
+    float: right;
+    padding-right: 150px;;
+}
+
+  .dark-btn {
+    background-color: #7c74ea;
+    color: white;
+  }
+  
+  .dark-btn:hover {
+    background-color: #c3bfff;
+    color: #5751a4;
+  }
+  
+  .dark-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3 px rgba(226, 224, 255, 0.8);
+  }
+
+.rec {
+    background-color: #c3bfff;
+    color:white;
+}
+
+  .carte-interne {
+      background: #e1dfff;
+  }
+
+  .main {
+      border: white;
+  }
+
+
+  .crediti {
+      display: inline-block;
+      align-items: center;
+  }
+
+  .cfu {
+      
+      padding-right: 40px;;
+      justify-items: right;
+
+  }
+
+  #ncred {
+      color:#7c74ea;
+      font-size: 30pt;
+      display: inline-block;
+      font-weight: 900;
+      font-family: 'Montserrat', sans-serif;
+  }
+  #totcred {
+      color: #5751a4;
+      font-size: 20pt;
+      display: inline-block;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+  }
+
+  .voto {
+    background-color:#7c74ea;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: white;
+    font-size: 12pt;
+    display: inline-block;
+    width: 40px;
+    
+  }
+
+  .nome-esame {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+  }
+
+  .info-esame {
+      display: inline-block;
+  }
+
+  .esame-gruppo {
+      align-items: center;
+  }
+
+  .prof {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9pt;
+  }
+
+  .media {
+    align-items: center;
+  }

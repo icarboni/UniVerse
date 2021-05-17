@@ -6,6 +6,16 @@ Universe è una pagina web destinata agli studenti universitari che permette lor
 
 ## Funzioni
 
+### Bacheca
+![bacheca](https://github.com/Alwaidd/UniVerse/blob/main/images/bacheca.PNG)
+
+### Registrazione
+![bacheca](https://github.com/Alwaidd/UniVerse/blob/main/images/iscrizione.PNG)
+
+
+![bacheca](https://github.com/Alwaidd/UniVerse/blob/main/images/insesami.PNG)
+
+
 
 ## Sito web
 E' possibile accedere alla pagina all'indirizzo http://185.135.102.27/ltw
@@ -15,8 +25,13 @@ Per la realizzazione del progetto sono stati usati:
 - HTML: per la struttura della pagina web
 - Bootstrap: per la realizzazione di alcune strutture e per rendere il layout responsive
 - CSS: per la grafica della pagina web
-- JavaScrip: per 
+- JavaScrip, AJAX e JQuery per gli script lato client e per effettuare get/post dal database sincronamente
 - Vue:
 - PHP: per interagire con il database MySQL
 
 ## Membri del team 
+
+
+Codice sidebar originale:
+https://www.codeply.com/p/Nkp8O77PFS
+
