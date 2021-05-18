@@ -1,8 +1,3 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=2">
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -10,12 +5,8 @@
         <script type="text/javascript" src="../js/carriera.js"></script>
         <script type="text/javascript" src="../js/vue.min.js"></script>
         <link rel="stylesheet" href="../css/pagec.css" type="text/css">
-    </head>
-    <body>
-     
-        <nav class="navbar navbar-expand-sm navbar-light fixed-top" >
-                <h2>La tua Carriera</h2>
-        </nav>
+
+
         <div class="btn-group">
             <button class="btn dropdown-toggle" type="button" id="1" name="ddt">
                 Anno Accademico
@@ -34,6 +25,8 @@
                 <button class="list-group-item border-0">Ingegneria Informatica</button>
             </div>
         </div>
+        <br>
+        <br>
         <div class="btn-group">
             <button class="btn" type="button" id="btn-svolti" onclick="changeesamidone()">
                 Esami svolti
@@ -44,6 +37,7 @@
                 Esami da svolgere
             </button>
         </div>
+
         <div class="row" id="Esami1" style="display:none">
             <?php include "../php/connect.php";
             $u = (int)$_SESSION['cod_utente'];
@@ -96,6 +90,7 @@
              }
             ?>
         </div>
+        
         <div class="row" id="Esamidone">
             <?php
         
@@ -171,5 +166,3 @@
                 }
             </script>
             <script type="text/javascript" src="../js/carrieraview.js"></script>
-    </body>
-</html>

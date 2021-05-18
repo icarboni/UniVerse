@@ -1,30 +1,20 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="../css/pagerm.css" type="text/css">
         <script type="text/javascript" src="../js/recensioni.js"></script>
 
-    </head>
-<body>
-<nav class="navbar navbar-expand-sm navbar-light fixed-top" >
-        <h2>Recensioni</h2>
-</nav>
-
 <?php include "../php/connect.php";
-    $codex = $_GET['codex']; $name=''; $codut = (int)$_SESSION['cod_utente'];
-    $qi = "SELECT nome FROM esami WHERE esami.cod_esame = $codex";
+    $codex = $_GET['codex'];
+    $_SESSION['page'] = 'esame';
+   
+    $name=''; 
+    $codut = (int)$_SESSION['cod_utente'];
+    $qi = "SELECT * FROM esami WHERE esami.cod_esame = $codex";
     $result = $conn->query($qi);
     if ($r = $result->fetch_assoc()) $name = $r['nome'];  
 ?>
 
-<div class="text-center"> <button class="btn" type="button" id="valutabtn" onclick="valutaex()"> Valuta il Corso:<br><?php echo $name ?></button> </div>
-<br>
 
 <?php
     $q = "SELECT * FROM valutazioni WHERE valutazioni.cod_esame = $codex AND valutazioni.cod_utente = $codut";
@@ -33,9 +23,30 @@
         echo "<SCRIPT LANGUAGE='javascript'>disable();</SCRIPT>";
     }
 ?>
+<div class="row mr-3 ml-3">
+<div class="col-12 col-lg main shadow p-4 mb-3 mr-md-2 bg-body rounded" >
+    <div id="titolo"> <?php echo $name ?> </div><br>
+    <div id="info" style="display: inline-block;"> 
+        <b>Codice esame:</b> <?php echo $r['cod_esame'] ?> 
+        <br>
+        <b>CFU:</b> <?php echo $r['crediti'] ?>
+        <br>
+        <b>Professore:</b> <?php echo $r['professore'] ?>
+        <br>
+        <b>Anno:</b> <?php echo $r['anno'] ?> 
+              <b>Semestre:</b> <?php echo $r['semestre'] ?>
+    </div>
+    <div id="valuta" style="display: inline-block;"> <button class="btn" type="button" id="valutabtn" onclick="valutaex()"> Valuta il Corso</button> </div>
+</div>
+</div>
 
-<div class="mb-3 row">
-    <label for="staticEmail" class="col-sm-2 col-form-label"><h4>Scriverai come: <b>Me</b> </h4></label>
+<div class="row mr-3 ml-3">
+<div class="col-12 col-lg main shadow p-4 mb-3 mr-md-2 bg-body rounded" style="height: auto;">
+
+<div id="titoloRec">Recensioni</div>
+
+<div class="mb-1 row">
+    <label for="staticEmail" class="col-sm-2 col-form-label"><h6>Scriverai come: <b>Me</b> </h6></label>
 </div>
 
 <div class="mb-3">
@@ -64,16 +75,17 @@
         $codutente = $row['cod_utente'];
         $commento = $row['commento'];
         $time = $row['tempo'];
-        echo "<li id='$idc'> 
+        echo "<li   id='$idc'> 
+                <div class='col-12 col-lg main shadow p-4 mb-3 mr-md-2 bg-body rounded' style='background: #e5dbff;'>
                 <div> 
                     <img src='../images/comment.jpg' height='32' width='32'> 
                     <b>$author</b> <span> dice:</span>
                 </div>
                 <div id='time' class='small'> $time </div>
                 <div class='lead'> <b>$commento</b> </div>
-                <div> <span> <button class='dark-btn' id='repbtnto$idc' onclick='reply($idc, $codex)'>Rispondi</button>";
+                <span> <button class='dark-btn' id='repbtnto$idc' onclick='reply($idc, $codex)'>Rispondi</button>";
                 if ($codutente == $codut) echo "<button class='dark-btn' id='remcom$idc' onclick='removecomment($idc)'>Elimina</button></span>";
-                else echo "</span> <br>";
+                else echo "</div>";
                 $sql2 = "SELECT * FROM commenti WHERE commenti.codice_esame = $codex AND commenti.reply_to = $idc";
                 $res2 = $conn->query($sql2);
                 while($row2 = $res2->fetch_assoc()) {
@@ -82,15 +94,16 @@
                     $codutente2 = $row2['cod_utente'];
                     $commento2 = $row2['commento'];
                     $time2 = $row2['tempo'];
-                    echo " <div class='mx-5' id='$idc2'> 
+                    echo " <div class='mx-5 p-5'  id='$idc2'> 
                             <img src='../images/comment.jpg' height='22' width='22'> 
                             <b>$author2</b> <span> risponde:</span>
                             <div id='time' class='small'> $time2 </div>
-                            <div class='lead'> <b>$commento2</b> </div>"; if ($codutente2 == $codut) echo "
+                            <div class='lead'> <b>$commento2</b> </div>"; 
+                            if ($codutente2 == $codut) echo "
                             <button class='dark-btn' id='remreplycom$idc2' onclick='removecomment($idc2)'>Elimina</button>
-                        </div>"; else echo "<br> </div>";
+                        </div>"; else echo "</div>";
                     }
-           echo "</div> </li> <br>";
+           echo "</li>";
         }
         $sql3 = "SELECT * FROM commenti WHERE commenti.codice_esame = $codex AND commenti.reply_to IN (SELECT id FROM commenti WHERE commenti.codice_esame = $codex AND commenti.cod_utente = $codut )";
         $res3 = $conn->query($sql3);
@@ -131,5 +144,5 @@
         </div>
         </div>
     </div>
-</body>
-</html>
+    </div>
+    </div>
