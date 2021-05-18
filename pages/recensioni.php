@@ -1,20 +1,4 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="../css/pager.css" type="text/css">
-        <script type="text/javascript" src="../js/recensioni.js"></script>
-
-    </head>
-    <body>
-    <nav class="navbar navbar-expand-sm navbar-light fixed-top">
-            <h1>Recensioni</h1>
-    </nav>
     <ul class="list-group list-group-flush">
         <?php include "../php/connect.php";
         $sql = "SELECT * FROM esami";
@@ -52,5 +36,3 @@
             }
         ?>
     </ul>
-    </body>
-</html>

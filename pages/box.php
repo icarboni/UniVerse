@@ -32,9 +32,43 @@
         $('#internoBox').load('./iscrizione.php');
                 });
         }
+
+        function carriera() {
+        $(document).ready(function(){
+        $('#internoBox').load('./carriera.php');
+                });
+        }
+
+
+        function esame_charge(c) {
+
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                
+                document.getElementById("internoBox").innerHTML = this.responseText;
+            }
+            };
+
+            xmlhttp.open("GET","recensionim.php?codex="+c,true);
+            xmlhttp.send();
+
+            }
+
+            function esamec(c) {
+                codex=c;
+                <?php $_GET['page'] = 'esame';   ?>
+                $(document).ready(function(){
+                    $('#internoBox').load('./recensionim.php?codex='+codex);
+                });
+        }
+
+
+
     </script>
 
 <?php
+
     session_start();
     
     if(!isset($_SESSION["mail"])) {
@@ -59,8 +93,13 @@
                 $result = $conn->query($sql_corso);
                 
                 if ($result->num_rows >= 1) {
-                    echo "<script>bacheca();</script>";
-                  
+                    if ($_SESSION['page'] =='carriera') {
+                        echo "<script>carriera();</script>";
+                    } elseif ($_SESSION['page'] =='bacheca') {
+                        echo "<script>bacheca();</script>";
+                    } else {
+                        
+                    }
                 } else echo "<script>iscrizione();</script>";
     ?>
 
@@ -76,18 +115,18 @@
         <div class="col-12 col-lg-3 col-xl-2 px-lg-2 px-0 bg-light d-flex sticky-top ">
             <div class="d-flex flex-lg-column flex-row flex-grow-1 align-items-center align-items-lg-start px-3 pt-2 text-black">
                 <a href="/" class="d-flex align-items-center pb-lg-3 mb-lg-0 me-lg-auto text-white text-decoration-none">
-                    <!-- <span class="fs-5">B<span class="d-none d-lg-inline">rand</span></span>-->
+              
                     <img src="../images/logo-viola-piccolo.png" alt="" width="150" height="38"  class="d-inline-block align-text-top">
                 </a>
                 <ul class="nav nav-pills flex-lg-column flex-row flex-nowrap flex-shrink-1 flex-lg-grow-0 flex-grow-1 mb-lg-auto mb-0 justify-content-center align-items-center align-items-lg-start" id="menu">
                 <li class="nav-item">
-                        <a onClick="bacheca()" class="nav-link px-lg-0 px-2">
+                        <a onClick="<?php $_SESSION['page']='bacheca'; echo 'bacheca();';?>" class="nav-link px-lg-0 px-2">
                         <i class="bi-house-fill"></i><span  class="ms-1 d-none d-lg-inline txt nav-txt">Bacheca</span>
                         </a>
                     </li>
 
                     <li>
-                        <a onClick="carriera()" class="nav-link px-lg-0 px-2">
+                        <a onClick="<?php $_SESSION['page']='carriera'; echo 'carriera();';?>" class="nav-link px-lg-0 px-2">
                         <i class="icons bi-ui-checks"></i><span  class="ms-1 d-none d-lg-inline txt nav-txt">Carriera</span>
                         </a>
                     </li>
@@ -114,7 +153,6 @@
 
 
                 <div class="dropdown py-lg-4 mt-lg-auto ms-auto ms-lg-0 flex-shrink-1">
-                        <!--<a class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false"> -->
                         <a class="nav-link dropdown-toggle px-lg-0 px-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="https://github.com/mdo.png" alt="hugenerd" width="40" height="40" class="rounded-circle">
                             <span class="d-none d-lg-inline mx-1" style="color: black;"><?php echo $utente["nome"]. " " . $utente["cognome"]; ?></span>

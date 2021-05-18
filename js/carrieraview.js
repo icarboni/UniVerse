@@ -24,12 +24,11 @@
     template:`<div class="col pt-5 px-4">
                 <div class="card" style="width: 30rem;">
                   <div class="card-body">
-                    <div class="container">
-                        <img src="../images/pb3.jpeg" style="width:100%;">
-                        <div class="card-String centered">{{ titolo }}</div>
-                    </div>
+                    <div class="card-String centered">{{ titolo }}</div> <b>{{ cfu }} CFU</b>
                     <br>
-                    <p class="card-String">{{ sem }}° Semestre <b>{{ cfu }} CFU</b> <br> <b>Cod</b>: {{ cod }} <img class="reg-check" v-bind:src="image"/>
+                    <b>Cod</b>: {{ cod }}
+                    <br>
+                    <p class="card-String">{{ sem }}° Semestre  <br>
                     </p>
                     <button class="btn" v-on:click="addexam()" v-if="todo==1">Segna come Svolto</button>
                     <button class="dark-btn" v-on:click="remexam()" v-else >Rimuovi da Svolti</button>

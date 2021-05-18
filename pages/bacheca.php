@@ -1,5 +1,9 @@
 <link rel="stylesheet" href="../css/bacheca4.css" type="text/css">
 
+
+
+
+
 <?php 
     session_start();
     include "./../php/connect.php";
@@ -138,7 +142,8 @@
             
             echo '<li class="list-group-item d-flex justify-content-between esame-gruppo">
                   <div class="info-esame ">
-                  <div class="nome-esame"><a href="">'.$esame2['nome'].'</a></div>
+                  <div class="nome-esame">
+                  <a  onclick="esamec('.$esame2['cod_esame'].')">'.$esame2['nome'].'</a></div>
                   <div class="prof">'.$esame2['professore'].'</div>
                   </div>
                 

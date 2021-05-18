@@ -1,33 +1,5 @@
-body {
-    height: 100vh;
-    background: white;
-    padding-top: 85px;
-    padding-right: 150px;
-    padding-left: 150px; 
-  }
-  
-  .home-cont {
-    padding-top: 20%;
-    height: 100vh;
-    vertical-align: middle;
-  }
-  
-  .navbar {
-    background-image: linear-gradient(to right top, #7c74ea, #787fec, #778aec, #7994ec, #7d9dea, #86a3eb, #8ea8ed, #96aeee, #a2b2f3, #adb6f7, #b8bbfb, #c3bfff);
-  }
-  
-  
-  
-  .log {
-    padding: 20px;
-    background-color: #ffffff;
-  }
-  
-  .form-group {
-    padding-top:20px;
-  }
-  
-  .prefix {
+
+.prefix {
     width: 100px;
     background: #e1dfff;
     
@@ -42,12 +14,7 @@ body {
     border-bottom-left-radius:0%;
   }
   
-  
-  .check {
-    justify-content: flex-start;
-    margin-top: 5px;
-  }
-  
+
   .dark-btn {
     background-color: white;
     color: black;
@@ -71,9 +38,6 @@ body {
     box-shadow: none;
   }
   
-  .navbar-toggler {
-    background: #7c74ea;
-  }
   
   .form-control:focus {
     outline: none;
@@ -112,46 +76,11 @@ body {
     box-shadow: none;
   }
 
-  #grp-psw {
-    margin-bottom: 10px;
-  }
-  
-  .reg-check {
-    width: 20px;
-    height: 20px;
-  }
-
   .centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    color:#7c74ea;
+      font-size: 15pt;
+      display: inline-block;
+      font-weight: 900;
+      font-family: 'Montserrat', sans-serif;
   }
 
-  .container {
-    position: relative;
-    text-align: center;
-    color: white;
-  }
-  
-  #nome-check {
-    display: none;
-  }
-  
-  #cognome-check {
-    display: none;
-  }
-  
-  #mail-check {
-    display: none;
-  }
-  
-  #psw-check {
-    display: none;
-  }
-  
-  #psw-check-conf {
-      display: none;
-    }
-    
-    
