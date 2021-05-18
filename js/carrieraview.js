@@ -21,8 +21,8 @@
         required : true
       }
     } ,
-    template:`<div class="col pt-5 pb-4 px-4">
-                <div class="card">
+    template:`<div class="col pt-5 px-4">
+                <div class="card" style="width: 30rem;">
                   <div class="card-body">
                     <div class="container">
                         <img src="../images/pb3.jpeg" style="width:100%;">
@@ -33,12 +33,13 @@
                     </p>
                     <button class="btn" v-on:click="addexam()" v-if="todo==1">Segna come Svolto</button>
                     <button class="dark-btn" v-on:click="remexam()" v-else >Rimuovi da Svolti</button>
-                    <a href="#" class="card-link position-absolute">Lascia una valutazione</a>
+                    <a v-bind:href="ref" class="card-link position-absolute">Lascia una valutazione</a>
                   </div>
                 </div>
               </div>`,
     data: function () {
         return {
+          ref: '../pages/recensionim.php?codex='+this.cod,
           todo: this.d,
           image: '../images/white-back.jpg'
         };
