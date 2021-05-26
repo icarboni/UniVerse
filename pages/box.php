@@ -71,7 +71,7 @@
 
             function orario() {
                 $(document).ready(function(){
-                $('#internoBox').load('./orario.php');
+                $('#internoBox').load('./orari.php');
                         });
             }
 
