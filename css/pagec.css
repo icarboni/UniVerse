@@ -63,6 +63,51 @@
   a.visited {
     color: #5751a4;
   }
+   
+  .light-btn {
+    color: #7c74ea;
+    font-weight: bold;
+    padding: 7px 45px;
+    border: #ffffff;
+    background-color: #ffffff;   
+  }
+  
+  .light-btn:hover {
+    color: #5751a4;
+  }
+  
+  .light-btn:visited {
+    color: #5751a4;
+  }
+
+  .light-btn:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .main-btn {
+    color: #7c74ea;
+    font-weight: bold;
+    padding-left: 0px;
+    padding-right: auto;
+    padding-top: 0px;
+    padding-bottom: 7px;
+    border: #ffffff;
+    background-color: #ffffff;   
+  }
+  
+  .main-btn:hover {
+    color: #5751a4;
+  }
+  
+  .main-btn:visited {
+    color: #5751a4;
+  }
+
+  .main-btn:focus {
+    outline: none;
+    box-shadow: none;
+  }
 
   .btn {
     color: white;
@@ -83,4 +128,38 @@
       font-weight: 900;
       font-family: 'Montserrat', sans-serif;
   }
-
+  .rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#e5dbff
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}

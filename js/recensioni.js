@@ -2,10 +2,6 @@ function valutaex () {
     $('#inseriscival').modal('show');
 }
 
-function openrec(codex) {
-   window.location.href = '../pages/recensionim.php?codex='+codex;
-}
-
 function comment(esame, r) {
     if (r==0) var commento = document.getElementById("commentText").value;
     else var commento = document.getElementById("replycommentText").value;
