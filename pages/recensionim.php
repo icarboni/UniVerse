@@ -24,7 +24,7 @@
     }
 ?>
 <div class="row mr-3 ml-3">
-<div class="col-12 col-lg main shadow p-4 mb-3 mr-md-2 bg-body rounded" >
+<div class="col-12 col-lg main shadow p-4 mb-3 mr-md-2 bg-body rounded">
     <div id="titolo"> <?php echo $name ?> </div><br>
     <div id="info" style="display: inline-block;"> 
         <b>Codice esame:</b> <?php echo $r['cod_esame'] ?> 
@@ -39,6 +39,46 @@
     <div id="valuta" style="display: inline-block;"> <button class="btn" type="button" id="valutabtn" onclick="valutaex()"> Valuta il Corso</button> </div>
 </div>
 </div>
+<?php
+    $query = "SELECT * FROM valutazioni WHERE valutazioni.cod_esame = $codex";
+    $all = $conn->query($query);
+    $tot = $all->num_rows;
+
+    $query1 = "SELECT * FROM valutazioni WHERE valutazioni.cod_esame = $codex AND valutazioni.valore = 1";
+    $resultp = $conn->query($query1);
+    $num1 = $resultp->num_rows; if ($tot!=0) $perc1 = ($num1/$tot)*100; else $perc1=0;
+    $query2 = "SELECT * FROM valutazioni WHERE valutazioni.cod_esame = $codex AND valutazioni.valore = 2";
+    $resultp = $conn->query($query2);
+    $num2 = $resultp->num_rows; if ($tot!=0) $perc2 = ($num2/$tot)*100; else $perc2=0;
+    $query3 = "SELECT * FROM valutazioni WHERE valutazioni.cod_esame = $codex AND valutazioni.valore = 3";
+    $resultp = $conn->query($query3);
+    $num3 = $resultp->num_rows; if ($tot!=0) $perc3 = ($num3/$tot)*100; else $perc3=0;
+    $query4 = "SELECT * FROM valutazioni WHERE valutazioni.cod_esame = $codex AND valutazioni.valore = 4";
+    $resultp = $conn->query($query4);
+    $num4 = $resultp->num_rows; if ($tot!=0) $perc4 = ($num4/$tot)*100; else $perc4=0;
+    $query5 = "SELECT * FROM valutazioni WHERE valutazioni.cod_esame = $codex AND valutazioni.valore = 5";
+    $resultp = $conn->query($query5);
+    $num5 = $resultp->num_rows; if ($tot!=0) $perc5 = ($num5/$tot)*100; else $perc5=0;
+?>
+<div class="row mr-3 ml-3">
+<div class="col-12 col-lg main shadow p-4 mb-3 mr-md-2 bg-body rounded" style="height: auto;">
+    <img class="mt-3 mb-1" src="../images/rec1.png" height="22"><div class="progress">
+    <div class="progress-bar bg-rec" role="progressbar" style="width: <?php echo $perc1; echo "%"; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo round($perc1,1); echo "%"; ?></div>
+    </div>
+    <img class="mt-3 mb-1" src="../images/rec2.png" height="22"><div class="progress">
+    <div class="progress-bar bg-rec" role="progressbar" style="width: <?php echo $perc2; echo "%"; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo round($perc2,1); echo "%"; ?></div>
+    </div>
+    <img class="mt-3 mb-1" src="../images/rec3.png" height="22"><div class="progress">
+    <div class="progress-bar bg-rec" role="progressbar" style="width: <?php echo $perc3; echo "%"; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo round($perc3,1); echo "%"; ?></div>
+    </div>
+    <img class="mt-3 mb-1" src="../images/rec4.png" height="22"><div class="progress">
+    <div class="progress-bar bg-rec" role="progressbar" style="width: <?php echo $perc4; echo "%"; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo round($perc4,1); echo "%"; ?></div>
+    </div>
+    <img class="mt-3 mb-1" src="../images/rec5.png" height="22"><div class="progress">
+    <div class="progress-bar bg-rec" role="progressbar" style="width: <?php echo $perc5; echo "%"; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo round($perc5,1); echo "%"; ?></div>
+    </div>
+</div> 
+</div>
 
 <div class="row mr-3 ml-3">
 <div class="col-12 col-lg main shadow p-4 mb-3 mr-md-2 bg-body rounded" style="height: auto;">
@@ -46,7 +86,7 @@
 <div id="titoloRec">Recensioni</div>
 
 <div class="mb-1 row">
-    <label for="staticEmail" class="col-sm-2 col-form-label"><h6>Scriverai come: <b>Me</b> </h6></label>
+    <label for="staticEmail" class="col-sm-2 col-form-label"><h6>Scriverai come: <b><?php echo $_SESSION['nome'];?></b> </h6></label>
 </div>
 
 <div class="mb-3">

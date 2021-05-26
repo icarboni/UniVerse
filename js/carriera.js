@@ -101,3 +101,29 @@
     }
     document.getElementById("Esami" + x).setAttribute("style", "display:flex");
   }
+
+function rate(c) {
+  var r;
+  var rates = document.getElementsByName("rate");
+      for (i = 0; i < rates.length; i++) {
+          if (rates[i].checked) {
+            r = rates[i].value;
+          }
+      }
+  var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        if (this.responseText==1) {
+          $('#inseriscival').modal('hide');
+          alert('Hai valutato questo corso con '+r+' stelle!');
+          document.getElementById("btn-"+c).disabled = true;
+        }
+        else { 
+          alert('something went wrong');
+             }
+        }
+      };
+      xhttp.open("POST", "../php/valuta.php", true);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send("rate="+r+"&codexam="+c);
+}

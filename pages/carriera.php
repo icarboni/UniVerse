@@ -6,15 +6,21 @@
         <script type="text/javascript" src="../js/vue.min.js"></script>
         <link rel="stylesheet" href="../css/pagec.css" type="text/css">
 
+        <?php include "../php/connect.php"; 
+        $u = (int)$_SESSION['cod_utente']; $na = "SELECT corso.num_anni FROM corso, iscrizione WHERE iscrizione.cod_utente = $u AND iscrizione.corso = corso.cod_corso";
+        $ra = $conn->query($na); $maxi = ($ra->fetch_assoc())['num_anni']; 
+        ?>
 
         <div class="btn-group">
             <button class="btn dropdown-toggle" type="button" id="1" name="ddt">
                 Anno Accademico
             </button>
-            <div class="dropdown-menu" id="dropdownMenuButton1"> 
-                <button class="dropdown-item" name="1">1° Anno</a>
-                <button class="dropdown-item" name="2">2° Anno</a>
-                <button class="dropdown-item" name="3">3° Anno</a>
+            <div class="dropdown-menu" id="dropdownMenuButton1">
+            <?php 
+                for ($anno = 1; $anno <= $maxi; ++$anno) {
+                  echo "<button class='dropdown-item' name='$anno'>$anno ° Anno</a>";
+                }
+                ?>
             </div>
         </div> 
         <div class="btn-group">
@@ -39,8 +45,7 @@
         </div>
 
         <div class="row" id="Esami1" style="display:none">
-            <?php include "../php/connect.php";
-            $u = (int)$_SESSION['cod_utente'];
+            <?php
             $sql = "SELECT * FROM esami WHERE esami.anno = 1 ";
             $res1 = $conn->query($sql);
              while($row = $res1->fetch_assoc()) {
@@ -51,8 +56,27 @@
                 $sql2 = "SELECT * FROM verbalizzazioni WHERE utente=$u AND verbalizzazioni.esame = $codice";
                 $result = $conn->query($sql2);
                 if ($result->num_rows > 0) $bool = 0;
-                else $bool = 1;
-                echo "<exam titolo='$tit' sem='$s' cfu='$credits' cod='$codice' d='$bool'></exam>";
+                else $bool = 1;   
+                $q = "SELECT * FROM valutazioni WHERE valutazioni.cod_esame = $codice AND valutazioni.cod_utente = $u";
+                $qres = $conn->query($q);
+                if ($qres->num_rows > 0) $rated = 1; 
+                else $rated = 0;
+                $sql3 = "SELECT valore FROM valutazioni WHERE valutazioni.cod_esame = $codice";
+                $resf = $conn->query($sql3);
+                $media = (double)0.0;
+                $numval = 0; $img;
+                    while($row3 = $resf->fetch_assoc()) {
+                        $media += $row3['valore'];
+                        $numval += 1;
+                    }
+                if ($numval==0) $media = 's.v.';
+                else $media = $media / $numval;
+                if ($media == 's.v.') $img = 0;
+                else if ($media > 0 && $media <= 2) $img = 1;
+                else if ($media > 2 && $media <= 3) $img = 2;
+                else if ($media > 3 && $media <= 4.5) $img = 3;
+                else $img = 4;
+                echo "<exam titolo='$tit' sem='$s' cfu='$credits' cod='$codice' d='$bool' rate='$media' star='$img' rated='$rated'></exam>";
              }
             ?>
         </div>
@@ -69,7 +93,26 @@
                 $result = $conn->query($sql2);
                 if ($result->num_rows > 0) $bool = 0;
                 else $bool = 1;
-                echo "<exam titolo='$tit' sem='$s' cfu='$credits' cod='$codice' d='$bool'></exam>";
+                $q2 = "SELECT * FROM valutazioni WHERE valutazioni.cod_esame = $codice AND valutazioni.cod_utente = $u";
+                $qres2 = $conn->query($q2);
+                if ($qres2->num_rows > 0) $rated = 1; 
+                else $rated = 0;
+                $sql3 = "SELECT valore FROM valutazioni WHERE valutazioni.cod_esame = $codice";
+                $resj = $conn->query($sql3);
+                $media = (double)0.0;
+                $numval = 0; $img;
+                    while($row3 = $resj->fetch_assoc()) {
+                        $media += $row3['valore'];
+                        $numval += 1;
+                    }
+                if ($numval==0) $media = 's.v.';
+                else $media = $media / $numval;
+                if ($media == 's.v.') $img = 0;
+                else if ($media > 0 && $media <= 2) $img = 1;
+                else if ($media > 2 && $media <= 3) $img = 2;
+                else if ($media > 3 && $media <= 4.5) $img = 3;
+                else $img = 4;
+                echo "<exam titolo='$tit' sem='$s' cfu='$credits' cod='$codice' d='$bool' rate='$media' star='$img' rated='$rated'></exam>";
              }
             ?> 
         </div> 
@@ -86,7 +129,26 @@
                 $result = $conn->query($sql2);
                 if ($result->num_rows > 0) $bool = 0;
                 else $bool = 1;
-                echo "<exam titolo='$tit' sem='$s' cfu='$credits' cod='$codice' d='$bool'></exam>";
+                $q3 = "SELECT * FROM valutazioni WHERE valutazioni.cod_esame = $codice AND valutazioni.cod_utente = $u";
+                $qres3 = $conn->query($q3);
+                if ($qres3->num_rows > 0) $rated = 1; 
+                else $rated = 0;
+                $sql3 = "SELECT valore FROM valutazioni WHERE valutazioni.cod_esame = $codice";
+                $ress = $conn->query($sql3);
+                $media = (double)0.0;
+                $numval = 0; $img;
+                    while($row3 = $ress->fetch_assoc()) {
+                        $media += $row3['valore'];
+                        $numval += 1;
+                    }
+                if ($numval==0) $media = 's.v.';
+                else $media = $media / $numval;
+                if ($media == 's.v.') $img = 0;
+                else if ($media > 0 && $media <= 2) $img = 1;
+                else if ($media > 2 && $media <= 3) $img = 2;
+                else if ($media > 3 && $media <= 4.5) $img = 3;
+                else $img = 4;
+                echo "<exam titolo='$tit' sem='$s' cfu='$credits' cod='$codice' d='$bool' rate='$media' star='$img' rated='$rated'></exam>";
              }
             ?>
         </div>
@@ -102,7 +164,26 @@
                 $s = (int)$row['semestre'];
                 $credits = (int)$row['crediti'];
                 $codice = (int)$row['cod_esame'];
-                echo "<exam titolo='$tit' sem='$s' cfu='$credits' cod='$codice' d='0'></exam>";
+                $qd = "SELECT * FROM valutazioni WHERE valutazioni.cod_esame = $codice AND valutazioni.cod_utente = $u";
+                $qresd = $conn->query($qd);
+                if ($qresd->num_rows > 0) $rated = 1; 
+                else $rated = 0;
+                $sql3 = "SELECT valore FROM valutazioni WHERE valutazioni.cod_esame = $codice";
+                $resd = $conn->query($sql3);
+                $media = (double)0.0;
+                $numval = 0; $img;
+                    while($row3 = $resd->fetch_assoc()) {
+                        $media += $row3['valore'];
+                        $numval += 1;
+                    }
+                if ($numval==0) $media = 's.v.';
+                else $media = $media / $numval;
+                if ($media == 's.v.') $img = 0;
+                else if ($media > 0 && $media <= 2) $img = 1;
+                else if ($media > 2 && $media <= 3) $img = 2;
+                else if ($media > 3 && $media <= 4.5) $img = 3;
+                else $img = 4;
+                echo "<exam titolo='$tit' sem='$s' cfu='$credits' cod='$codice' d='0' rate='$media' star='$img' rated='$rated'></exam>";
              } 
             ?> 
         </div>
@@ -116,7 +197,26 @@
                 $s = (int)$row['semestre'];
                 $credits = (int)$row['crediti'];
                 $codice = (int)$row['cod_esame'];
-                echo "<exam titolo='$tit' sem='$s' cfu='$credits' cod='$codice' d='1'></exam>";
+                $qtd = "SELECT * FROM valutazioni WHERE valutazioni.cod_esame = $codice AND valutazioni.cod_utente = $u";
+                $qrestd = $conn->query($qtd);
+                if ($qrestd->num_rows > 0) $rated = 1; 
+                else $rated = 0;
+                $sql3 = "SELECT valore FROM valutazioni WHERE valutazioni.cod_esame = $codice";
+                $restd = $conn->query($sql3);
+                $media = (double)0.0;
+                $numval = 0; $img;
+                    while($row3 = $restd->fetch_assoc()) {
+                        $media += $row3['valore'];
+                        $numval += 1;
+                    }
+                if ($numval==0) $media = 's.v.';
+                else $media = $media / $numval;
+                if ($media == 's.v.') $img = 0;
+                else if ($media > 0 && $media <= 2) $img = 1;
+                else if ($media > 2 && $media <= 3) $img = 2;
+                else if ($media > 3 && $media <= 4.5) $img = 3;
+                else $img = 4;
+                echo "<exam titolo='$tit' sem='$s' cfu='$credits' cod='$codice' d='1' rate='$media' star='$img' rated='$rated'></exam>";
              }
             ?>
         </div>
@@ -151,6 +251,39 @@
         </div>
         </div>
         </div>
+        </div>
+
+        <div class="modal fade" id="inseriscival" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticRatingLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="staticRatingLabel">Valuta Corso</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form>
+        <div class="rate">
+            <input type="radio" id="star5" name="rate" value="5" />
+            <label for="star5" title="text">5 stars</label>
+            <input type="radio" id="star4" name="rate" value="4" />
+            <label for="star4" title="text">4 stars</label>
+            <input type="radio" id="star3" name="rate" value="3" />
+            <label for="star3" title="text">3 stars</label>
+            <input type="radio" id="star2" name="rate" value="2" />
+            <label for="star2" title="text">2 stars</label>
+            <input type="radio" id="star1" name="rate" value="1" />
+            <label for="star1" title="text">1 star</label>
+        </div>
+        </form>
+        <div class="modal-footer">
+            <button type="button" class="btn dark-btn" data-bs-dismiss="modal" id="triggerval" onclick="">Ok</button>
+        </div>
+        </div>
+        </div>
+    </div>
+    </div>
+    </div>
 
             <script>
                 var dropbottons = document.getElementsByName("ddt");

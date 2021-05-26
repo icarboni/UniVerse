@@ -19,20 +19,31 @@
       d : {
         type: Number,
         required : true
+      },
+      rate : {
+        type: Number,
+        required : true
+      },
+      star : {
+        type: Number,
+        required : true
+      },
+      rated : {
+        type: Number,
+        required : true
       }
     } ,
     template:`<div class="col pt-5 px-4">
                 <div class="card" style="width: 30rem;">
                   <div class="card-body">
-                    <div class="card-String centered">{{ titolo }}</div> <b>{{ cfu }} CFU</b>
+                    <button class="main-btn card-String centered" v-on:click="openrec()">{{ titolo }}</button> <b>{{ cfu }} CFU</b>
                     <br>
                     <b>Cod</b>: {{ cod }}
-                    <br>
-                    <p class="card-String">{{ sem }}° Semestre  <br>
-                    </p>
+                    <br> <p class="card-String"> {{ sem }}° Semestre
+                    <br> <b>Rating</b>: {{ rate }} <img v-bind:src="starimg" height='22' width='32'> </p>
                     <button class="btn" v-on:click="addexam()" v-if="todo==1">Segna come Svolto</button>
                     <button class="dark-btn" v-on:click="remexam()" v-else >Rimuovi da Svolti</button>
-                    <a v-bind:href="ref" class="card-link position-absolute">Lascia una valutazione</a>
+                    <button v-bind:id="id" v-on:click="rateex()" v-bind:disabled="rated==1" class="light-btn position-absolute">Lascia una valutazione</button>
                   </div>
                 </div>
               </div>`,
@@ -40,7 +51,9 @@
         return {
           ref: '../pages/recensionim.php?codex='+this.cod,
           todo: this.d,
-          image: '../images/white-back.jpg'
+          image: '../images/white-back.jpg',
+          starimg: '../images/'+this.star+'.jpg',
+          id: 'btn-'+this.cod
         };
       },
     methods: {
@@ -50,6 +63,13 @@
         remexam : function () {
           toggleremoveexam(this.cod);
       },
+        rateex : function () {
+        $('#inseriscival').modal('show');
+        document.getElementById("triggerval").setAttribute("onclick", "rate("+this.cod+")");
+      },
+        openrec : function ()  {
+            /*$('#inernoBox').load(this.ref);*/window,location.replace(this.ref);
+      }
     }
 });
 
