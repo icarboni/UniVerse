@@ -88,7 +88,8 @@ function setdate() {
 function changeview(e) {
     var v = e.target.getAttribute("id");
     var a = v[4];
-    /*$('#inernoBox').load('../pages/orari.php?anno='+a);*/window.location.href = '../pages/orari.php?anno='+a;
+    $('#inernoBox').load('../pages/orari.php?anno='+a);
+    window.location.href = '../pages/orari.php?anno='+a;
 }
 
 function changefirst() {

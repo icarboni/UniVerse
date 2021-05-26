@@ -2,15 +2,14 @@
     box-sizing: border-box;
   }
   
-  body {
-    background: #fff;
-  }
+
   
   .container {
     width: 100%;
     display: grid;
     grid-template-rows: 3em 3em auto;
     position: absolute;
+    background-color: white;
   }
   
   .title {

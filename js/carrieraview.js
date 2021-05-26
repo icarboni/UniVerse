@@ -68,7 +68,8 @@
         document.getElementById("triggerval").setAttribute("onclick", "rate("+this.cod+")");
       },
         openrec : function ()  {
-            /*$('#inernoBox').load(this.ref);*/window,location.replace(this.ref);
+            $('#inernoBox').load(this.ref);
+            window,location.replace(this.ref);
       }
     }
 });

@@ -30,8 +30,8 @@
                 <button class="list-group-item border-0 pr-5" id="Sem2" onclick="changesecond()">2° Semestre</a>
             </div>
     </div> 
-
-    <div class="container">
+    
+    <div class="container shadow p-3 mb-3 mr-md-2 bg-body rounded">
   <div class="title" id="main"></div>
   <div class="days">
     <div class="filler"></div>
