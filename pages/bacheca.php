@@ -161,7 +161,7 @@
         </ul>
         
     </div>
-    <div class=" col-xl main shadow p-3 mb-3 ml-0 ml-xl-2 bg-body rounded">
+    <div class=" col-xl main shadow p-3 mb-3 ml-0 ml-xl-1 bg-body rounded">
         <h5 class="card-title">Media degli esami</h5>
         <br>
         <br>

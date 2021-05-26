@@ -13,15 +13,20 @@ https://coolors.co/feecf6-ebebeb-99087e-fbc5e5-c20a75
 -->
 
 
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">  
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="css/home3.css" type="text/css">
-  <script src="js/home2.js"></script>
+  <link rel="stylesheet" href="css/home.css" type="text/css">
+  <script src="js/home.js"></script>
 
   <script src="js/login.js"></script>
   <script src="js/registrazione.js"></script>
+
+  
 
   
 
@@ -53,6 +58,7 @@ https://coolors.co/feecf6-ebebeb-99087e-fbc5e5-c20a75
 
         </ul>
     -->
+ 
             <div class="d-flex justify-content-right mt-md-0 mt-3">
                 <!--<form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -68,14 +74,81 @@ https://coolors.co/feecf6-ebebeb-99087e-fbc5e5-c20a75
     </nav>
 
     <div class="container-fluid home-cont">
-        <div class="row">
-            <div class="col-md-8 col-12 homesx"></div>
-            <div class="col-md-4 homedx">
-                <div class="row">
-                    <div class="col-2"></div>
+        <div class="row pt-5 mt-md-5">
+            <div class="col-lg-8 col-12 homesx ">
+                <div class="row pt-5 pl-5 pr-5">
+                    <div class="col-12 ">
+                        <div class="row justify-content-md-center">
+                            <div class="col-12 col-md-5 main shadow p-3 mb-3  bg-body rounded" >
 
-                    <div class="col-8 text-center">
-                        <div class="border rounded log text-center">
+                                <div class="blocco align-middle">
+                                    <div class="blocco-img ">
+                                        <img class="image" src="images/books.png" ></img>
+                                    </div>    
+                                    <div class="blocco-txt">
+                                        <div class="tit">Seleziona il tuo corso di studi</div>
+                                        <div class="txt">Iscriviti e seleziona l'universita e il corso di studi che stai frequentando per accedere a tutte le funzionalita di Universe!l</div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-1 hidden-sm padd"></div>
+                            <div class="col-12 col-md-5 main shadow p-3 mb-3  bg-body rounded " >
+                                
+                                    <div class="blocco align-middle">
+                                        <div class="blocco-img ">
+                                            <img class="image" src="images/presentacion.png" ></img>
+                                        </div>
+                                        <div class="blocco-txt">
+                                            <div class="tit">Visualizza i tuoi progressi</div>
+                                            <div class="txt">Attraverso la bacheca potrai vedere i tuoi progressi negli esami, per tenere sempre tutto sotto controllo.</div>
+                                        </div>
+                                    
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div>    
+                <div class="row pb-lg-5 pl-5 pr-5">
+                    <div class="col-12">
+                        <div class="row justify-content-md-center">
+                            <div class="col-12 col-md-5 main shadow p-3 mb-3  bg-body rounded" >
+                                <div class="blocco align-middle">
+                                    <div class="blocco-img  ">
+                                        <img class="image" src="images/comments.png" ></img>
+                                    </div>
+                                    <div class="blocco-txt">
+                                        <div class="tit">Confrontati con altri studenti</div>
+                                        <div class="txt">Visualizza i commenti degli altri studenti del tuo corso di studio e confrontati con loro per essere piú sicuro nei futuri esami.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-1 hidden-sm padd"></div>
+                            <div class="col-12 col-md-5 main shadow p-3 mb-3  bg-body rounded" >
+                                <div class="blocco align-middle">
+                                    <div class="blocco-img  ">
+                                        <img class="image" src="images/calendario.png" ></img>
+                                    </div>
+                                    <div class="blocco-txt">
+                                        <div class="tit">Organizza il tuo studio</div>
+                                        <div class="txt">Prepara il tuo planning personale per organizzare i tuoi giorni di studio in base ai prossimi esami.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 homedx mt-lg-5">
+                <div class="row pt-5 mt-lg-5">
+                    <div class="col-1 col-lg-2 pt-5"></div>
+
+                    <div class="col-10 col-lg-8 text-center mt-lg-5">
+                        <div class="border shadow bg-body rounded log text-center">
                             <form id="login-form" method="GET" >
                                 <div class="form-group">
                                     <div id="message"></div>
@@ -111,15 +184,16 @@ https://coolors.co/feecf6-ebebeb-99087e-fbc5e5-c20a75
                                                     <div class="input-group-prepend" >
                                                         <span class="input-group-text prefix">Nome</span>
                                                     </div>
-                                                    <input type="text" aria-label="Nome" placeholder="Nome" class="form-control" name="nome" id="nome-reg" value="<?php echo $nome; ?>"  onblur="verificatoNome()">
-                                                    <span class="input-group-text suffix"><img class="reg-check" id="nome-check" src="images/checked.png"></img></span>
+                                                    <input type="text" aria-label="Nome" placeholder="Nome" class="form-control" name="nome" id="nome-reg" value=""  onblur="verificatoNome()">
+                                                    <span class="input-group-text suffix" ><img class="reg-check" id="nome-check" src="images/checked.png"></img></span>
                                                 </div>
+                                                
                                                 <br>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend" >
                                                         <span class="input-group-text prefix">Cognome</span>
                                                     </div>
-                                                    <input type="text" aria-label="Cognome" placeholder="Cognome" class="form-control" name="cognome" id="cognome-reg" value="<?php echo $cognome; ?>" onblur="verificatoCognome()">
+                                                    <input type="text" aria-label="Cognome" placeholder="Cognome" class="form-control" name="cognome" id="cognome-reg" value="" onblur="verificatoCognome()">
                                                     <span class="input-group-text suffix"><img class="reg-check" id="cognome-check" src="images/checked.png"></img></span>
                                                 </div> 
                                                 <br>
@@ -128,7 +202,7 @@ https://coolors.co/feecf6-ebebeb-99087e-fbc5e5-c20a75
                                                     <div class="input-group-prepend" >
                                                         <span class="input-group-text prefix">E-Mail</span>
                                                     </div>
-                                                    <input type="text" aria-label="E-Mail" placeholder="E-mail" class="form-control" name="mail" id="mail-reg" value="<?php echo $mail; ?>" onblur="verificatoMail()">
+                                                    <input type="text" aria-label="E-Mail" placeholder="E-mail" class="form-control" name="mail" id="mail-reg" value="" onblur="verificatoMail()">
                                                     <span class="input-group-text suffix"><img class="reg-check" id="mail-check" src="images/checked.png"></img></span>
                                                 </div>
                                                 <br>
@@ -137,7 +211,7 @@ https://coolors.co/feecf6-ebebeb-99087e-fbc5e5-c20a75
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text prefix">Password</span>
                                                     </div>
-                                                    <input type="password" aria-label="Password" placeholder="Password" class="form-control" name="psw" id="psw-reg" value="<?php echo $psw; ?>" onblur="verificatoPsw()">
+                                                    <input type="password" aria-label="Password" placeholder="Password" class="form-control" name="psw" id="psw-reg" value="" onblur="verificatoPsw()">
                                                     <span class="input-group-text suffix"><img class="reg-check" id="psw-check" src="images/checked.png"></img></span>
                                                 </div>
 
@@ -145,7 +219,7 @@ https://coolors.co/feecf6-ebebeb-99087e-fbc5e5-c20a75
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text prefix">Password</span>
                                                     </div>
-                                                    <input type="password" aria-label="Password" placeholder="Conferma password" class="form-control" name="psw-conf" id="psw-reg-conf" value="<?php echo $psw2; ?>" onblur="verificatoPswConf()">
+                                                    <input type="password" aria-label="Password" placeholder="Conferma password" class="form-control" name="psw-conf" id="psw-reg-conf" value="" onblur="verificatoPswConf()">
                                                     <span class="input-group-text suffix"><img class="reg-check" id="psw-check-conf" src="images/checked.png"></img></span>
                                                 </div>
 
@@ -163,7 +237,7 @@ https://coolors.co/feecf6-ebebeb-99087e-fbc5e5-c20a75
             </div>
 
 
-            <div class="col-2"></div>
+            <div class="col-1 col-lg-2"></div>
 
             </div>
         </div>
