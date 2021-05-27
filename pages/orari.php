@@ -5,7 +5,7 @@
     <script type="text/javascript" src="../js/orari.js"></script>
 
     <?php include "../php/connect.php"; 
-    $cod_utente = $_SESSION['cod_utente']; $i = "SELECT corso.num_anni FROM corso, iscrizione WHERE iscrizione.cod_utente = $cod_utente AND iscrizione.corso = corso.cod_corso"; 
+    $cod_utente = $_SESSION['cod_utente']; $i = "SELECT corso.num_anni FROM corso, iscrizione WHERE iscrizione.cod_utente = 25 AND iscrizione.corso = corso.cod_corso"; 
     $r = $conn->query($i); $maxi = ($r->fetch_assoc())['num_anni']; 
     ?>
 
@@ -81,12 +81,12 @@
     <div class="row" style="grid-row:13"></div>
     <?php
       if (isset($_GET['anno'])) { $a = $_GET['anno'];
-      $req = "SELECT * FROM orari WHERE orari.cod_corso IN (SELECT corso FROM iscrizione WHERE iscrizione.cod_utente = $cod_utente) AND orari.universita IN (SELECT universita FROM iscrizione WHERE iscrizione.cod_utente = $cod_utente) AND orari.cod_esame IN (SELECT cod_esame FROM esami WHERE esami.semestre = 1 AND esami.anno = $a)";
-      $req2 = "SELECT * FROM orari WHERE orari.cod_corso IN (SELECT corso FROM iscrizione WHERE iscrizione.cod_utente = $cod_utente) AND orari.universita IN (SELECT universita FROM iscrizione WHERE iscrizione.cod_utente = $cod_utente) AND orari.cod_esame IN (SELECT cod_esame FROM esami WHERE esami.semestre = 2 AND esami.anno = $a)";
+      $req = "SELECT * FROM orari WHERE orari.cod_corso IN (SELECT corso FROM iscrizione WHERE iscrizione.cod_utente = 25) AND orari.universita IN (SELECT universita FROM iscrizione WHERE iscrizione.cod_utente = 25) AND orari.cod_esame IN (SELECT cod_esame FROM esami WHERE esami.semestre = 1 AND esami.anno = $a)";
+      $req2 = "SELECT * FROM orari WHERE orari.cod_corso IN (SELECT corso FROM iscrizione WHERE iscrizione.cod_utente = 25) AND orari.universita IN (SELECT universita FROM iscrizione WHERE iscrizione.cod_utente = 25) AND orari.cod_esame IN (SELECT cod_esame FROM esami WHERE esami.semestre = 2 AND esami.anno = $a)";
       }
       else { 
-      $req = "SELECT * FROM orari WHERE orari.cod_corso IN (SELECT corso FROM iscrizione WHERE iscrizione.cod_utente = $cod_utente) AND orari.universita IN (SELECT universita FROM iscrizione WHERE iscrizione.cod_utente = $cod_utente) AND orari.cod_esame IN (SELECT cod_esame FROM esami WHERE esami.semestre = 1 AND esami.anno = 1)";
-      $req2 = "SELECT * FROM orari WHERE orari.cod_corso IN (SELECT corso FROM iscrizione WHERE iscrizione.cod_utente = $cod_utente) AND orari.universita IN (SELECT universita FROM iscrizione WHERE iscrizione.cod_utente = $cod_utente) AND orari.cod_esame IN (SELECT cod_esame FROM esami WHERE esami.semestre = 2 AND esami.anno = 1)";
+      $req = "SELECT * FROM orari WHERE orari.cod_corso IN (SELECT corso FROM iscrizione WHERE iscrizione.cod_utente = 25) AND orari.universita IN (SELECT universita FROM iscrizione WHERE iscrizione.cod_utente = 25) AND orari.cod_esame IN (SELECT cod_esame FROM esami WHERE esami.semestre = 1 AND esami.anno = 1)";
+      $req2 = "SELECT * FROM orari WHERE orari.cod_corso IN (SELECT corso FROM iscrizione WHERE iscrizione.cod_utente = 25) AND orari.universita IN (SELECT universita FROM iscrizione WHERE iscrizione.cod_utente = 25) AND orari.cod_esame IN (SELECT cod_esame FROM esami WHERE esami.semestre = 2 AND esami.anno = 1)";
       }
       $res = $conn->query($req);
       while ($row = $res->fetch_assoc()) {
