@@ -2,7 +2,7 @@
     box-sizing: border-box;
   }
   
-  
+
   
   .container {
     width: 100%;
@@ -127,4 +127,4 @@
   .notbold{
     font-weight:normal;
     font-size: 80%;
-  }
+}
