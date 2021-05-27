@@ -1,0 +1,173 @@
+.day-hidden {
+    display: inline-block;
+}
+.weekday {
+    display: inline-block;
+    width: auto;
+}
+
+.mesebarra {
+    display: inline-block;
+}
+
+.weekdays {
+    color:#7c74ea;
+    font-size: 15pt;
+    display: inline-block;
+    font-weight: 900;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#txt_mese {
+    color:#7c74ea;
+    font-size: 30pt;
+    display: inline-block;
+    font-weight: 900;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+
+.arrow {
+    color:#7c74ea;
+    font-size: 20pt;
+}
+
+#mese {
+    width: 100%;
+ 
+}
+
+.date {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    height: 78vh;
+}
+
+.giorno {
+    border-style: solid;
+    border-color: #DADFE8;
+    border-width: 1px;
+    padding: 10px;
+}
+
+.numero {
+    color:#5751a4;
+    font-size: 13pt;
+    display: inline-block;
+    font-weight: 900;
+    font-family: 'Montserrat', sans-serif;
+	margin-bottom: 10px;;
+}
+
+.active {
+        background-color: #e1dfff;
+        color: #2A4C50;
+}
+
+.day-hidden {
+    background-color: #CFD2D9;
+}
+
+
+
+
+.fab-container {
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+	z-index: 999;
+	cursor: pointer;
+}
+
+.fab-icon-holder {
+	width: 50px;
+	height: 50px;
+	border-radius: 100%;
+	background: #7c74ea;
+	box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.fab-icon-holder:hover{
+	opacity: 0.8;
+}
+
+.fab-icon-holder i {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	height: 100%;
+	font-size: 25px;
+	color: #ffffff;
+}
+
+.fab {
+	width: 60px;
+	height: 60px;
+	background: #5751a4;
+}
+
+.fab-options {
+	list-style-type: none;
+	margin: 0;
+	position: absolute;
+	bottom: 70px;
+	right: 0;
+	opacity: 0;
+	transition: all 0.3s ease;
+	transform: scale(0);
+	transform-origin: 85% bottom;
+}
+
+.fab:hover + .fab-options, .fab-options:hover {
+	opacity: 1;
+	transform: scale(1);
+}
+
+.fab-options li {
+	display: flex;
+	justify-content: flex-end;
+	padding: 5px;
+}
+
+.fab-label {
+	padding: 2px 5px;
+	align-self: center;
+	user-select: none;
+	white-space: nowrap;
+	border-radius: 3px;
+	font-size: 16px;
+	background: #666666;
+	color: #ffffff;
+	box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+	margin-right: 10px;
+}
+
+
+.aggiungi {
+    width: 200px;
+}
+
+.studio {
+    background-color: #c3bfff;
+	padding: 7px;
+	margin: -5px;
+	font-weight: 600;
+}
+
+.esame {
+	background-color: #7c74ea;
+	padding: 7px;
+	margin: -5px;
+    color: white;
+    font-weight: 600;
+} 
+
+#giornoRimEs {
+	font-weight: 900;
+}
+
+#esameRim {
+
+font-weight: 900;
+}

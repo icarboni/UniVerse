@@ -39,7 +39,7 @@
                 });
         }
 
-
+/*
         function esame_charge(c) {
 
             var xmlhttp = new XMLHttpRequest();
@@ -53,15 +53,27 @@
             xmlhttp.open("GET","recensionim.php?codex="+c,true);
             xmlhttp.send();
 
-            }
+            }*/
 
             function esamec(c) {
                 codex=c;
-                <?php $_GET['page'] = 'esame';   ?>
+                <?php $_SESSION['page'] = 'esame';   ?>
                 $(document).ready(function(){
                     $('#internoBox').load('./recensionim.php?codex='+codex);
                 });
         }
+
+            function agenda() {
+                $(document).ready(function(){
+                $('#internoBox').load('./agenda.php');
+                        });
+            }
+
+            function orario() {
+                $(document).ready(function(){
+                $('#internoBox').load('./orari.php');
+                        });
+            }
 
 
 
@@ -92,13 +104,21 @@
                 $sql_corso = "SELECT * FROM corso, iscrizione WHERE iscrizione.cod_utente = '$cod_utente' and  iscrizione.corso = corso.cod_corso" ;
                 $result = $conn->query($sql_corso);
                 
+                
                 if ($result->num_rows >= 1) {
+                    $corso = $result->num_rows;
+                    $_SESSION['corso'] = $corso['cord_corso'];
+                    $_SESSION['anno']= $corso['anno'];
                     if ($_SESSION['page'] =='carriera') {
                         echo "<script>carriera();</script>";
                     } elseif ($_SESSION['page'] =='bacheca') {
                         echo "<script>bacheca();</script>";
+                    } elseif ($_SESSION['page'] =='agenda') {
+                        echo "<script>agenda();</script>";
+                    } elseif ($_SESSION['page'] =='orario') {
+                        echo "<script>orario();</script>";
                     } else {
-                        
+                        echo "<script>bacheca();</script>";
                     }
                 } else echo "<script>iscrizione();</script>";
     ?>
@@ -114,10 +134,11 @@
     <div class="row vh-100 overflow-auto">
         <div class="col-12 col-lg-3 col-xl-2 px-lg-2 px-0 bg-light d-flex sticky-top ">
             <div class="d-flex flex-lg-column flex-row flex-grow-1 align-items-center align-items-lg-start px-3 pt-2 text-black">
-                <a href="/" class="d-flex align-items-center pb-lg-3 mb-lg-0 me-lg-auto text-white text-decoration-none">
+                <a  class="d-flex align-items-center pb-lg-3 mb-lg-0 me-lg-auto text-white text-decoration-none">
               
                     <img src="../images/logo-viola-piccolo.png" alt="" width="150" height="38"  class="d-inline-block align-text-top">
                 </a>
+                
                 <ul class="nav nav-pills flex-lg-column flex-row flex-nowrap flex-shrink-1 flex-lg-grow-0 flex-grow-1 mb-lg-auto mb-0 justify-content-center align-items-center align-items-lg-start" id="menu">
                 <li class="nav-item">
                         <a onClick="<?php $_SESSION['page']='bacheca'; echo 'bacheca();';?>" class="nav-link px-lg-0 px-2">
@@ -132,35 +153,32 @@
                     </li>
 
                     <li>
-                        <a onClick="orario()" class="nav-link px-lg-0 px-2">
+                        <a onClick="<?php $_SESSION['page'] = 'orario'; echo 'orario();';?>" class="nav-link px-lg-0 px-2">
                             <i class="icons bi-clock-fill"></i><span class="ms-1 d-none d-lg-inline txt nav-txt">Orario</span>
                         </a>
                     </li>
 
                     <li>
-                        <a onClick="organizzazione()" class="nav-link px-lg-0 px-2">
-                            <i class="icons bi-calendar-event-fill"></i><span  class="ms-1 d-none d-lg-inline txt nav-txt">Organizzazione</span>
+                        <a onClick="<?php $_SESSION['page'] = 'agenda'; echo 'agenda();';?>" class="nav-link px-lg-0 px-2">
+                            <i class="icons bi-calendar-event-fill"></i><span  class="ms-1 d-none d-lg-inline txt nav-txt">Agenda</span>
                         </a>
                     </li>
 
-                    <li>
-                        <a onClick="impostazioni()" class="nav-link px-lg-0 px-2">
-                            <i class="icons bi-gear-fill"></i><span  class="ms-1 d-none d-lg-inline txt nav-txt">Impostazioni</span>
-                        </a>
-                    </li>
+                    
         
                 </ul>
 
 
+
                 <div class="dropdown py-lg-4 mt-lg-auto ms-auto ms-lg-0 flex-shrink-1">
                         <a class="nav-link dropdown-toggle px-lg-0 px-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="https://github.com/mdo.png" alt="hugenerd" width="40" height="40" class="rounded-circle">
+                            <img src="../images/user.png" alt="userpic" width="35" height="35" class="rounded-circle">
                             <span class="d-none d-lg-inline mx-1" style="color: black;"><?php echo $utente["nome"]. " " . $utente["cognome"]; ?></span>
                         </a>
                             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Cambia immagine del profilo</a></li>
-                                <li><a class="dropdown-item" href="#">Cambia lingua</a></li>
-                                <li><a class="dropdown-item" href="#">Cambia...</a></li>
+                                
+                                <li><a class="dropdown-item" href="#">Impostazioni</a></li>
+                                
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>

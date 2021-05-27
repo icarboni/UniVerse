@@ -4,7 +4,7 @@ body {
 }
 
 .home-cont {
-  padding-top: 20%;
+  
   height: 100vh;
   vertical-align: middle;
 }
@@ -13,6 +13,40 @@ body {
   background: rgba(255, 255, 255, 0.5);
 }
 
+.main {
+    background-color: #ffffff; 
+}
+
+.image {
+  height: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+  
+}
+
+.blocco {
+ height: 30vh;
+}
+
+.blocco-txt { 
+  text-align: center;
+  
+}
+
+.blocco-img {
+  padding: 10px;
+  height: 14vh;
+  text-align: center;
+}
+
+.tit {
+  color: #5751a4;
+  font-size: 15pt;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+}
 
 
 .log {
