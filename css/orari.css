@@ -10,7 +10,10 @@
     width: 100%;
     display: grid;
     grid-template-rows: 3em 3em auto;
-    position: absolute;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+    max-width: 90%;
   }
   
   .title {
@@ -38,6 +41,7 @@
   
   .day {
     border-left: 1px solid #dadce0;
+    min-width: 100px;
   }
   
   .content {
@@ -61,12 +65,14 @@
     border-right: 1px solid #dadce0;
     grid-row: 1/span 24;
     grid-column: span 1;
+    
   }
   
   .filler-col {
     grid-row: 1/-1;
     grid-column: 2;
     border-right: 1px solid #dadce0;
+    
   }
   
   .row {
@@ -77,10 +83,11 @@
   .event {
     border-radius: 5px;
     padding: 5px;
-    margin-right: 10px;
+    margin-right: 8px;
+    margin-left: 1px;
     margin-bottom: 3px;
     font-weight: bold;
-    font-size: 80%;
+    font-size: 70%;
   }
   
   .weekend {
@@ -121,5 +128,6 @@
   }
 
   .notbold{
-    font-weight:normal
+    font-weight:normal;
+    font-size: 80%;
 }
