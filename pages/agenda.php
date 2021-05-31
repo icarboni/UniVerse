@@ -9,18 +9,23 @@
         };
 
         var giorniMese= [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-
         var esami;
         var studio;
 
         function dataSelezionata() {
-                    if (dataSel.mese<10) {
-                        return dataSel.anno + '-0' + (parseInt(dataSel.mese)+1) + '-' + dataSel.giorno; 
-                    } else return dataSel.anno + '-' + (parseInt(dataSel.mese)+1) + '-' + dataSel.giorno; 
-                }
+            var ms;
+            var gg;
+            if (dataSel.mese<9) {
+                ms= '-0' + (parseInt(dataSel.mese)+1);
+            } else ms='-' + (parseInt(dataSel.mese)+1);
+            if (dataSel.giorno<10) {
+                gg = '-0' + dataSel.giorno;
+            } else gg = '-' +dataSel.giorno;
+            return dataSel.anno + ms + gg; 
+           
+        }
 
         function caricaForm(n) {
-
             if (n==1) {
                 document.getElementById("dataEsame").value = dataSelezionata();
             } else if (n==2) {
@@ -46,12 +51,8 @@
                 
 
         function carica() {
-            
-
-            
             setTimeout(function(){  
             var mese = dataSel.mese;
-            
             
             esami = [];
             esami = localStorage.getItem("ex-" + mese + "-" + dataSel.anno);
@@ -65,8 +66,6 @@
                 x= new Date(dataSel.anno, 0, 0).getDate();
             } else x= new Date(dataSel.anno, mese+1, 0).getDate();
              
-            
-            
                 for (var i=1; i<=x; i++) {
                
                 if (esami[i] != null) {
@@ -97,7 +96,7 @@
                    }
                }
 
-            }, 50);
+            }, 300);
         }
 
        
@@ -276,37 +275,6 @@
                 </div>
             </div>
 
-<!--
-            <div class="modal fade" id="aggiungiStudio" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Aggiungi giornata di studio</h5>
-                   
-                    </div>
-                    <div class="modal-body">
-                        <div class="" id="selezionaEsameStudio"></div>
-                    
-                        <br>
-                        <div style="display:inline-block;" >
-                            <input class="aggiungi" type="date" id="start" name="trip-start"
-                            min="2021-01-01" max="2022-12-31">
-                            
-                            <input class="aggiungi" type="time" id="appt" name="appt" value="11:00"
-                            min="09:00" max="18:00" required>
-                        </div>
-
-                    </div>
-                    <div class="modal-footer">
-                    
-                    <button type="button" class="btn btn-primary">Salva</button>
-                    </div>
-                </div>
-                </div>
-            </div>
-
-    -->
-
             <div class="d-flex justify-content-around" id="mese"> 
                 <div class="mesebarra" id="f_sinistra" v-on:click="precedente();" onclick=" carica();" ><i class="bi arrow bi-arrow-left-circle-fill"></i></div>
                 <div class="mesebarra" id="txt_mese" > {{ mesi[currentDate.mese] }} {{ currentDate.anno }}</div>
@@ -356,11 +324,6 @@
     </div>
 </div>
 
-
-<!--
-<script src="../js/calendario.js"></script>-->
-
-
 <script>
 
 var app = new Vue ({
@@ -374,8 +337,6 @@ var app = new Vue ({
           'Agosto','Settembre','Ottobre','Novembre','Dicembre'
         ],
         currentDate: dataSel,
-
-        prova: 'a',
   
     },
     computed: {
@@ -412,8 +373,7 @@ var app = new Vue ({
         }
         else {
           this.currentDate.mese += 1;
-        }  
-             
+        }        
       },
 
       precedente: function() {
@@ -431,8 +391,6 @@ var app = new Vue ({
 
   created() {
     this.getDataOggi();
-    
-
   }
 });
 

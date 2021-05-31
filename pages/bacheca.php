@@ -1,8 +1,37 @@
-<link rel="stylesheet" href="../css/bacheca4.css" type="text/css">
+<link rel="stylesheet" href="../css/bacheca.css" type="text/css">
+<script type="text/javascript" src="../js/recensioni.js"></script>
+
+<script>
+var  c;
+function modalRec(cod) {
+    c=cod;
+    $("#recModal").modal("toggle");
+}
+
+function commenta(esame) {
+    $("#recModal").modal("toggle");
+    var commento = document.getElementById("commentText").value;
+    var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                if (this.responseText==1) {
+                    <?php $_SESSION['page'] = 'esame';   ?>
+                    $(document).ready(function(){
+                        $('#internoBox').load('./recensionim.php?codex='+esame);
+                    });
+                }
+                else { 
+                  alert('something went wrong');
+                     }
+                }
+              };
+      xhttp.open("POST", "../php/commenta.php", true);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send("idesame="+esame+"&commento="+commento+"&reply=0");
+}
 
 
-
-
+</script>
 
 <?php 
     session_start();
@@ -37,6 +66,46 @@
     }
 
 ?>
+
+<div class="modal fade" id="recModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticRatingLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="staticRatingLabel">Valuta Corso</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            
+                <div class="rate">
+                    <input type="radio" id="star5" name="rate" value="5" />
+                    <label for="star5" title="text">5 stars</label>
+                    <input type="radio" id="star4" name="rate" value="4" />
+                    <label for="star4" title="text">4 stars</label>
+                    <input type="radio" id="star3" name="rate" value="3" />
+                    <label for="star3" title="text">3 stars</label>
+                    <input type="radio" id="star2" name="rate" value="2" />
+                    <label for="star2" title="text">2 stars</label>
+                    <input type="radio" id="star1" name="rate" value="1" />
+                    <label for="star1" title="text">1 star</label>
+                </div>
+                
+            
+            <button type="button" class="btn dark-btn" data-bs-dismiss="modal" id="triggerval" onclick="rate(c)">Valuta</button>
+            <br>
+            <textarea class="form-control" id="commentText" rows="5"></textarea>
+  <br>
+        </div>
+        
+        <div class="modal-footer">
+            <button type="button" class="btn dark-btn" data-bs-dismiss="modal" id="triggerval" onclick="commenta(c)">Inserisci recensione</button>
+        </div>
+        </div>
+        </div>
+    </div>
+    </div>
+    </div>
 
     <?php
     echo "
@@ -108,7 +177,7 @@
                 <div class="crediti d-flex justify-content-center align-middle">
                     <div id="ncred"><?php echo $tot_crediti; ?></div><div id="totcred">/<?php echo $corso['crediti']; ?></div>
                 </div>       
-                    <!--    <div id="donutchart" style="object-fit: cover;"></div> -->
+                        <div id="donutchart" style="object-fit: cover;"></div> 
                     
                 
                 <br>
@@ -143,12 +212,12 @@
             echo '<li class="list-group-item d-flex justify-content-between esame-gruppo">
                   <div class="info-esame ">
                   <div class="nome-esame">
-                  <a  onclick="esamec('.$esame2['cod_esame'].')">'.$esame2['nome'].'</a></div>
+                  <a onclick="esamec('.$esame2['cod_esame'].')">'.$esame2['nome'].'</a></div>
                   <div class="prof">'.$esame2['professore'].'</div>
                   </div>
                 
                   <div class="d-flex justify-content-between">
-                  <div class="rec"><button class="btn dark-btn">Recensione</button></div>
+                  <div class="rec"><button class="btn dark-btn" onclick="modalRec('.$esame2['cod_esame'].')">Recensione</button></div>
                   <div class="cfu" style="width: 150px; padding-left: 20px;">'.$esame2['crediti'].' CFU</div>
                   <div class=""><span class=" badge voto" >'.$esame2['voto'].'</span></div>
                   </div>
@@ -159,7 +228,6 @@
         ?>
 
         </ul>
-        
     </div>
     <div class=" col-xl main shadow p-3 mb-3 ml-0 ml-xl-1 bg-body rounded">
         <h5 class="card-title">Media degli esami</h5>
@@ -170,3 +238,4 @@
     </div>
 </div>
         
+  
