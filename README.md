@@ -11,14 +11,23 @@ Universe è una pagina web destinata agli studenti universitari che permette lor
 
 ### Registrazione e iscrizione
 ![registrazione](https://github.com/Alwaidd/UniVerse/blob/main/images/registrazione.PNG)
-Solarized dark             |  Solarized Ocean
-:-------------------------:|:-------------------------:
-![iscrizione](https://github.com/Alwaidd/UniVerse/blob/main/images/iscrizione.PNG)|  ![inserimento esami](https://github.com/Alwaidd/UniVerse/blob/main/images/insesami.PNG)
-
+![iscrizione](https://github.com/Alwaidd/UniVerse/blob/main/images/iscrizione.PNG) 
+![inserimento esami](https://github.com/Alwaidd/UniVerse/blob/main/images/insesami.PNG) |
 
 ### Bacheca
 ![bacheca](https://github.com/Alwaidd/UniVerse/blob/main/images/bacheca.PNG)
 
+### Carriera
+![carriera](https://github.com/Alwaidd/UniVerse/blob/main/images/carriera.PNG)
+![corso](https://github.com/Alwaidd/UniVerse/blob/main/images/corso.PNG) 
+![recensioni](https://github.com/Alwaidd/UniVerse/blob/main/images/recensioni.PNG) 
+![valuta](https://github.com/Alwaidd/UniVerse/blob/main/images/valuta.PNG)
+
+### Orario
+![orario](https://github.com/Alwaidd/UniVerse/blob/main/images/orario.PNG)
+
+### Agenda
+![agenda](https://github.com/Alwaidd/UniVerse/blob/main/images/agenda.PNG)
 
 
 
