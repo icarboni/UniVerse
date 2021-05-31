@@ -13,10 +13,7 @@
     $qi = "SELECT * FROM esami WHERE esami.cod_esame = $codex";
     $result = $conn->query($qi);
     if ($r = $result->fetch_assoc()) $name = $r['nome'];  
-?>
 
-
-<?php
     $q = "SELECT * FROM valutazioni WHERE valutazioni.cod_esame = $codex AND valutazioni.cod_utente = $codut";
     $result = $conn->query($q);
     if ($result->num_rows > 0) {
@@ -24,22 +21,27 @@
     }
 ?>
 <div class="row mr-3 ml-3">
-<div class="col-12 col-lg main shadow p-4 mb-3 mr-md-2 bg-body rounded">
-    <div id="titolo"> <?php echo $name ?> </div><br>
-    <div id="info" style="display: inline-block;"> 
-        <b>Codice esame:</b> <?php echo $r['cod_esame'] ?> 
+    <div class="col main shadow p-4 mb-3 mr-md-2 bg-body rounded">
+        <div class="tit-corso">
+            <div id="titolo"> <?php echo $name ?> </div><br>
+            <div id="info" > 
+                <b>Codice esame:</b> <?php echo $r['cod_esame'] ?> 
+                <br>
+                <b>CFU:</b> <?php echo $r['crediti'] ?>
+                <br>
+                <b>Professore:</b> <?php echo $r['professore'] ?>
+                <br>
+                <b>Anno:</b> <?php echo $r['anno'] ?> 
+                    <b>Semestre:</b> <?php echo $r['semestre'] ?>
+            </div>
+            
+        </div>
         <br>
-        <b>CFU:</b> <?php echo $r['crediti'] ?>
-        <br>
-        <b>Professore:</b> <?php echo $r['professore'] ?>
-        <br>
-        <b>Anno:</b> <?php echo $r['anno'] ?> 
-              <b>Semestre:</b> <?php echo $r['semestre'] ?>
+       <div id="valuta" style="display: inline-block;"> <button class="btn" type="button" id="valutabtn" onclick="valutaex()"> Valuta il Corso</button> </div>
     </div>
-    <div id="valuta" style="display: inline-block;"> <button class="btn" type="button" id="valutabtn" onclick="valutaex()"> Valuta il Corso</button> </div>
-</div>
-</div>
-<?php
+    <div class="col main shadow p-4 mb-3 mr-md-2 bg-body rounded">
+    
+    <?php
     $query = "SELECT * FROM valutazioni WHERE valutazioni.cod_esame = $codex";
     $all = $conn->query($query);
     $tot = $all->num_rows;
@@ -60,8 +62,8 @@
     $resultp = $conn->query($query5);
     $num5 = $resultp->num_rows; if ($tot!=0) $perc5 = ($num5/$tot)*100; else $perc5=0;
 ?>
-<div class="row mr-3 ml-3">
-<div class="col-12 col-lg main shadow p-4 mb-3 mr-md-2 bg-body rounded" style="height: auto;">
+
+
     <img class="mt-3 mb-1" src="../images/rec1.png" height="22"><div class="progress">
     <div class="progress-bar bg-rec" role="progressbar" style="width: <?php echo $perc1; echo "%"; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo round($perc1,1); echo "%"; ?></div>
     </div>
@@ -76,9 +78,11 @@
     </div>
     <img class="mt-3 mb-1" src="../images/rec5.png" height="22"><div class="progress">
     <div class="progress-bar bg-rec" role="progressbar" style="width: <?php echo $perc5; echo "%"; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo round($perc5,1); echo "%"; ?></div>
-    </div>
 </div> 
+
+</div>   <!---->
 </div>
+
 
 <div class="row mr-3 ml-3">
 <div class="col-12 col-lg main shadow p-4 mb-3 mr-md-2 bg-body rounded" style="height: auto;">

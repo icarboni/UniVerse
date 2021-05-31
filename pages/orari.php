@@ -5,7 +5,7 @@
     <script type="text/javascript" src="../js/orari.js"></script>
 
     <?php include "../php/connect.php"; 
-    $cod_utente = $_SESSION['cod_utente']; $i = "SELECT corso.num_anni FROM corso, iscrizione WHERE iscrizione.cod_utente = $cod_utente AND iscrizione.corso = corso.cod_corso";
+    $cod_utente = $_SESSION['cod_utente']; $i = "SELECT corso.num_anni FROM corso, iscrizione WHERE iscrizione.cod_utente = $cod_utente AND iscrizione.corso = corso.cod_corso"; 
     $r = $conn->query($i); $maxi = ($r->fetch_assoc())['num_anni']; 
     ?>
 
@@ -31,7 +31,7 @@
             </div>
     </div> 
     
-    <div class="container shadow p-3 mb-3 mr-md-2 bg-body rounded">
+    <div class="container shadow p-3 mb-3  mr-2 bg-body rounded">
   <div class="title" id="main"></div>
   <div class="days">
     <div class="filler"></div>

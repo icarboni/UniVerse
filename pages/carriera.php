@@ -10,8 +10,8 @@
         $u = (int)$_SESSION['cod_utente']; $na = "SELECT corso.num_anni FROM corso, iscrizione WHERE iscrizione.cod_utente = $u AND iscrizione.corso = corso.cod_corso";
         $ra = $conn->query($na); $maxi = ($ra->fetch_assoc())['num_anni']; 
         ?>
-
-        <div class="btn-group">
+<div class="container">
+       <div class="btn-group">
             <button class="btn dropdown-toggle" type="button" id="1" name="ddt">
                 Anno Accademico
             </button>
@@ -284,7 +284,7 @@
     </div>
     </div>
     </div>
-
+</div>
             <script>
                 var dropbottons = document.getElementsByName("ddt");
                 for (var i = 0; i < dropbottons.length; i++) {
