@@ -34,6 +34,6 @@ Per la realizzazione del progetto sono stati usati:
 | Ilenia   | Edoardo |
 | -------- | ----------- |
 | Home<br>- index.php<br>- home.js<br>- home.css | Carriera:<br>- carriera.php<br>- carriera.js<br>- carrieraview.js<br>- pagec.css  |
-| Bacheca:<br>-bacheca.php<br>- bacheca.js<br>- registrazione.js<br>- login.js<br>- bacheca.css | A blank line starts a new paragraph |
-| Iscrizione:<br>- iscrizione.php<br>- getAnno.php<br>- getUni.php<br>- post_iscrizione.php |  // all on one line<br> {{{ if (foo) bar else   baz }}} |
+| Bacheca:<br>-bacheca.php<br>- bacheca.js<br>- registrazione.js<br>- login.js<br>- bacheca.css | Corso/recensioni:<br>- recensionim.php<br>- commenta.php<br>- rimuovicommento.php<br>- valuta.php<br>- recensioni.js<br>- pager.css  |
+| Iscrizione:<br>- iscrizione.php<br>- getAnno.php<br>- getUni.php<br>- post_iscrizione.php |  Orari:<br>- orari.php<br>-   |
 
