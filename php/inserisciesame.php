@@ -1,7 +1,8 @@
 <?php
+session_start();
     $ce = (int)$_POST['codesame'];
     $ve = (int)$_POST['votoesame'];
-    $c = (int)$_SESSION['cod_utente'];
+    $c = $_SESSION['cod_utente'];
 
     include "connect.php";
 
