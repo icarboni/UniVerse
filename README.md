@@ -26,12 +26,20 @@ Per la realizzazione del progetto sono stati usati:
 - Bootstrap: per la realizzazione di alcune strutture e per rendere il layout responsive
 - CSS: per la grafica della pagina web
 - JavaScrip, AJAX e JQuery per gli script lato client e per effettuare get/post dal database sincronamente
-- Vue:
+- Vue: per la agenda e la carriera
 - PHP: per interagire con il database MySQL
 
 ## Membri del team 
 
 
-Codice sidebar originale:
-https://www.codeply.com/p/Nkp8O77PFS
+| Ilenia  | Edoardo |
+| ------------- | ------------- |
+| Pagine realizzate:  |   |
+| Home: |   |
+
+| Format   | Tag example |
+| -------- | ----------- |
+| Headings | =heading1=<br>==heading2==<br>===heading3=== |
+| New paragraph | A blank line starts a new paragraph |
+| Source code block |  // all on one line<br> {{{ if (foo) bar else   baz }}} |
 
