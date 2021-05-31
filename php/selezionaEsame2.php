@@ -10,7 +10,7 @@ session_start();
     $result = $conn->query($sql);
     echo "
         <div class='select aggiungi'>
-        <select name='esame' id='esame' class='form-select form-select-lg select' onchange=''>
+        <select name='esame' id='esame2' class='form-select form-select-lg select' onchange=''>
         <option value=''>Seleziona corso</option>";
     while($esame = $result->fetch_assoc()) {
         echo "<option value='".$esame['nome']."'>".$esame['nome']."</option>";

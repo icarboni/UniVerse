@@ -18,7 +18,7 @@
             <div class="dropdown-menu" id="dropdownMenuButton1">
             <?php 
                 for ($anno = 1; $anno <= $maxi; ++$anno) {
-                  echo "<button class='dropdown-item' name='$anno'>$anno ° Anno</a>";
+                  echo "<button class='dropdown-item' name='$anno'>$anno ° Anno</a></button>";
                 }
                 ?>
             </div>

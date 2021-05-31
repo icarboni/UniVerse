@@ -26,11 +26,7 @@
         }
 
         function caricaForm(n) {
-            if (n==1) {
-                document.getElementById("dataEsame").value = dataSelezionata();
-            } else if (n==2) {
-                document.getElementById("datastudiare").value = dataSelezionata();
-            }
+            
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
@@ -39,13 +35,19 @@
                 } else if (n==2) {
                     document.getElementById("selezionaEsame2").innerHTML = this.responseText;
                 } 
-                
             }
             };
-            
-            xmlhttp.open("GET","../php/selezionaEsame.php", true);
-            xmlhttp.send();
+            if (n==1) {
+                document.getElementById("dataEsame").value = dataSelezionata();
+                xmlhttp.open("GET","../php/selezionaEsame.php", true);
+                xmlhttp.send();
+            } else if (n==2) {
+                document.getElementById("datastudiare").value = dataSelezionata();
+                xmlhttp.open("GET","../php/selezionaEsame2.php", true);
+                xmlhttp.send();
         }
+            }
+            
 
         
                 
@@ -131,7 +133,7 @@
                     if (d[1][0] == "0") d[1]= d[1][1];
                     if (d[2][0] == "0") d[2]= d[2][1];
                     d[1] = parseInt(d[1])-1; 
-                    studio[d[2]] = document.getElementById("esame").value;
+                    studio[d[2]] = document.getElementById("esame2").value;
                     document.getElementById("2id"+d[2]).style.visibility = "visible";
                     document.getElementById("2id"+d[2]).innerHTML = studio[d[2]];
                     localStorage.setItem("st-" + d[1] + "-" + d[0], JSON.stringify(studio));
