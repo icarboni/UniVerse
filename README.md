@@ -30,6 +30,7 @@ Per la realizzazione del progetto sono stati usati:
 - PHP: per interagire con il database MySQL
 
 ## Membri del team 
+Membri del team che hanno realizzato il progetto con le relative parti svolte.
 
 | Ilenia   | Edoardo |
 | -------- | ----------- |
