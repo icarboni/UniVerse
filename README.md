@@ -39,7 +39,7 @@ Per la realizzazione del progetto sono stati usati:
 
 | Ilenia   | Edoardo |
 | -------- | ----------- |
-| =Home=<br>==index.php==<br>===home.js=== | =heading1=<br>==heading2==<br>===heading3=== |
+| Home<br>index.php<br>home.js |  |
 | New paragraph | A blank line starts a new paragraph |
 | Source code block |  // all on one line<br> {{{ if (foo) bar else   baz }}} |
 
