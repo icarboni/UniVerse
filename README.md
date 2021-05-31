@@ -33,7 +33,7 @@ Per la realizzazione del progetto sono stati usati:
 
 | Ilenia   | Edoardo |
 | -------- | ----------- |
-| Home<br>- index.php<br>- home.js<br>home.css |  |
-| Bacheca:<br>-bacheca.php<br>- bacheca.js<br>registrazione.js<br>- login.js<br>- bacheca.css | A blank line starts a new paragraph |
-| Iscrizione:<br>-iscrizione.php<br>- |  // all on one line<br> {{{ if (foo) bar else   baz }}} |
+| Home<br>- index.php<br>- home.js<br>- home.css | Carriera:<br>- carriera.php<br>- carriera.js<br>- carrieraview.js<br>- pagec.css  |
+| Bacheca:<br>-bacheca.php<br>- bacheca.js<br>- registrazione.js<br>- login.js<br>- bacheca.css | A blank line starts a new paragraph |
+| Iscrizione:<br>- iscrizione.php<br>- getAnno.php<br>- getUni.php<br>- post_iscrizione.php |  // all on one line<br> {{{ if (foo) bar else   baz }}} |
 
