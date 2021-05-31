@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="../css/calendario.css" type="text/css">
-
+<script type="text/javascript" src="../js/vue.min.js"></script>
 <script>
 
         var dataSel = {
@@ -328,6 +328,7 @@
 
 <script>
 
+
 var app = new Vue ({
     el: '#app',
     
@@ -399,4 +400,4 @@ var app = new Vue ({
 carica();
 
 </script>
-<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>-->

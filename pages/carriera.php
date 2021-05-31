@@ -6,7 +6,59 @@
         <script type="text/javascript" src="../js/vue.min.js"></script>
         <link rel="stylesheet" href="../css/pagec.css" type="text/css">
 
-        <?php include "../php/connect.php"; 
+        <script>
+
+            
+  function insertex(codesame) {
+    votoesame = document.getElementById("votoesame").value;
+    if (votoesame < 18 || votoesame > 31) { alert('Il valore del voto non è valido');
+          return false;
+          }
+    else {
+          var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                if (this.responseText==1) {
+                  $('#inserisciEsame').modal('hide');
+                  alert('Hai inserito in Carriera questo esame: '+codesame+'\nAggiornamento esami svolti');
+                  $('#internoBox').load('carriera.php');
+                }
+                else { 
+                  alert('something went wrong!');
+                     }
+           
+                }
+              };
+      xhttp.open("POST", "../php/inserisciesame.php", true);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send("codesame="+codesame+"&votoesame="+votoesame);
+      }
+  }
+
+  function toggleremoveexam(codesame) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        if (this.responseText==1) {
+          $('#inserisciEsame').modal('hide');
+          alert('Hai rimosso dalla Carriera questo esame: '+codesame+'\nAggiornamento esami svolti');
+          $('#internoBox').load('carriera.php');
+        }
+        else { 
+          alert('something went wrong!');
+            }
+ 
+        }
+      };
+      xhttp.open("POST", "../php/rimuoviesame.php", true);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send("codesame="+codesame);
+}
+
+</script>
+
+        <?php include "../php/connect.php";
+        session_start(); 
         $u = (int)$_SESSION['cod_utente']; $na = "SELECT corso.num_anni FROM corso, iscrizione WHERE iscrizione.cod_utente = $u AND iscrizione.corso = corso.cod_corso";
         $ra = $conn->query($na); $maxi = ($ra->fetch_assoc())['num_anni']; 
         ?>
