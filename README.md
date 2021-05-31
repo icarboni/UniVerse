@@ -31,15 +31,9 @@ Per la realizzazione del progetto sono stati usati:
 
 ## Membri del team 
 
-
-| Ilenia  | Edoardo |
-| ------------- | ------------- |
-| Pagine realizzate:  |   |
-| Home: |   |
-
 | Ilenia   | Edoardo |
 | -------- | ----------- |
-| Home<br>index.php<br>home.js |  |
-| New paragraph | A blank line starts a new paragraph |
-| Source code block |  // all on one line<br> {{{ if (foo) bar else   baz }}} |
+| Home<br>- index.php<br>- home.js<br>home.css |  |
+| Bacheca:<br>-bacheca.php<br>- bacheca.js<br>registrazione.js<br>- login.js<br>- bacheca.css | A blank line starts a new paragraph |
+| Iscrizione:<br>-iscrizione.php<br>- |  // all on one line<br> {{{ if (foo) bar else   baz }}} |
 
