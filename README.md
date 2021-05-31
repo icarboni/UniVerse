@@ -10,15 +10,15 @@ Universe è una pagina web destinata agli studenti universitari che permette lor
 ![bacheca](https://github.com/Alwaidd/UniVerse/blob/main/images/bacheca.PNG)
 
 ### Registrazione
-![bacheca](https://github.com/Alwaidd/UniVerse/blob/main/images/iscrizione.PNG)
+![registrazione](https://github.com/Alwaidd/UniVerse/blob/main/images/iscrizione.PNG)
 
 
-![bacheca](https://github.com/Alwaidd/UniVerse/blob/main/images/insesami.PNG)
+![inserimento esami](https://github.com/Alwaidd/UniVerse/blob/main/images/insesami.PNG)
 
 
 
 ## Sito web
-E' possibile accedere alla pagina all'indirizzo http://185.135.102.27/ltw
+E' possibile accedere alla pagina all'indirizzo http://185.135.102.27/UniVerse
 
 ## Tecnologie impiegate
 Per la realizzazione del progetto sono stati usati:
