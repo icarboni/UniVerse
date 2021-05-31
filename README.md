@@ -11,8 +11,7 @@ Universe è una pagina web destinata agli studenti universitari che permette lor
 
 ### Registrazione e iscrizione
 ![registrazione](https://github.com/Alwaidd/UniVerse/blob/main/images/registrazione.PNG)
-![iscrizione](https://github.com/Alwaidd/UniVerse/blob/main/images/iscrizione.PNG)
-![inserimento esami](https://github.com/Alwaidd/UniVerse/blob/main/images/insesami.PNG)
+| ![iscrizione](https://github.com/Alwaidd/UniVerse/blob/main/images/iscrizione.PNG) | ![inserimento esami](https://github.com/Alwaidd/UniVerse/blob/main/images/insesami.PNG) |
 
 ### Bacheca
 ![bacheca](https://github.com/Alwaidd/UniVerse/blob/main/images/bacheca.PNG)
