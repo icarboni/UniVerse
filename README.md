@@ -47,7 +47,7 @@ Per la realizzazione del progetto sono stati usati:
 ## Membri del team 
 Membri del team che hanno realizzato il progetto con le relative parti svolte.
 
-| Ilenia                                   | Edoardo                                 |
+| Ilenia                                      -| Edoardo                                      -|
 | -------- | ----------- |
 | Home<br>- index.php<br>- home.js<br>- registrazione.js<br>- login.js<br>- home.css | Carriera:<br>- carriera.php<br>- carriera.js<br>- carrieraview.js<br>- pagec.css  |
 | Bacheca:<br>-bacheca.php<br>- bacheca.js<br>- chart.php<br>- bacheca.css | Corso/recensioni:<br>- recensionim.php<br>- commenta.php<br>- rimuovicommento.php<br>- valuta.php<br>- recensioni.js<br>- pager.css  |
