@@ -1,6 +1,12 @@
 var no_completi = false;
 var s5;
 
+function registrazione() {
+    if (no_completi==false) {
+        header("Location: ./pages/box.php");
+    } else alert("Tutti i campi devono essere completi");
+}
+
 function verificatoNome(e) {
     var s = document.getElementById("nome-reg").value;
     if (s!="") {

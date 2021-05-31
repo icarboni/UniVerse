@@ -24,21 +24,6 @@ body {
     padding-top:20px;
   }
   
-  .prefix {
-    width: 100px;
-    background: #e1dfff;
-    
-  }
-  
-  .suffix {
-    width: 50px;
-    background: #ffffff;
-    border-top-right-radius:15%;
-    border-bottom-right-radius:15%;
-    border-top-left-radius:0%;
-    border-bottom-left-radius:0%;
-  }
-  
   
   .check {
     justify-content: flex-start;

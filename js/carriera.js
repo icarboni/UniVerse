@@ -29,7 +29,7 @@
                 if (this.responseText==1) {
                   $('#inserisciEsame').modal('hide');
                   alert('Hai inserito in Carriera questo esame: '+codesame+'\nAggiornamento esami svolti');
-                  window.location.reload();
+                  ('#internoBox').reload();
                 }
                 else { 
                   alert('something went wrong!');

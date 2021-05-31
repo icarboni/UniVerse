@@ -3,6 +3,7 @@
       list-style-type: none;
   }
 
+
   #titolo {
     color:#7c74ea;
     font-size: 25pt;
@@ -21,7 +22,7 @@
 
 #info {
     font-size: 15pt;
-    width: 50vw;
+   
 }
 
 .valuta {
@@ -98,9 +99,7 @@
     color: #a2b2f3;
   }
 
-  #grp-psw {
-    margin-bottom: 10px;
-  }
+ 
   
   .reg-check {
     width: 20px;
@@ -115,9 +114,6 @@
   }
   
   
-  #psw-check-conf {
-      display: none;
-    }
     *{
       margin: 0;
       padding: 0;
