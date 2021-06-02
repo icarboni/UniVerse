@@ -4,6 +4,31 @@
         <link rel="stylesheet" href="../css/pagerm.css" type="text/css">
         <script type="text/javascript" src="../js/recensioni.js"></script>
 
+
+        <script>
+    
+    function comment(esame, r) {
+        if (r==0) var commento = document.getElementById("commentText").value;
+        else var commento = document.getElementById("replycommentText").value;
+        var xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                    if (this.responseText==1) {
+                        alert("done");
+                         $('#internoBox').load('recensionim.php?codex='+esame);
+                    }
+                    else { 
+                      alert('something went wrong');
+                         }
+                    }
+                  };
+          xhttp.open("POST", "../php/commenta.php", true);
+          xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          xhttp.send("idesame="+esame+"&commento="+commento+"&reply="+r);
+    }
+    </script>
+
+
 <?php include "../php/connect.php";
     $codex = $_GET['codex'];
     $_SESSION['page'] = 'esame';

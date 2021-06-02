@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $code = (int)$_POST['codesame'];
     $c = (int)$_SESSION['cod_utente'];
 

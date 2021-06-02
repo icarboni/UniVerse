@@ -32,32 +32,6 @@ https://coolors.co/feecf6-ebebeb-99087e-fbc5e5-c20a75
 
 </head>
 <body>
-<!--
-    <nav class="navbar navbar-expand-sm navbar-light fixed-top" >
-        <a class="navbar-brand justify-align-start" style="width: 60%"  href="#" >
-        <img src="images/logo-viola-piccolo.png" alt="" width="119" height="30"  class="d-inline-block align-text-top">
-        
-        </a>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarToggler" >
-        
-        
- 
-            <div class="d-flex justify-content-right mt-md-0 mt-3">
-               
-                <a style="width: 300px; height: 0px;"></a>
-                <button class="btn dark-btn" type="submit">Accedi</button>
-                <a style="width: 5px;"></a>
-                <button class="btn dark-btn" type="submit" onclick="$('#regModal').modal('toggle')">Registrati</button>
-            </div>
-        </div>
-    </nav>
--->
-
 
     <div class="container-fluid home-cont">
         <div class="row pt-2">
