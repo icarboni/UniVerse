@@ -2,25 +2,6 @@ function valutaex () {
     $('#inseriscival').modal('show');
 }
 
-function comment(esame, r) {
-    if (r==0) var commento = document.getElementById("commentText").value;
-    else var commento = document.getElementById("replycommentText").value;
-    var xhttp = new XMLHttpRequest();
-              xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                if (this.responseText==1) {
-                    window.location.reload();
-                }
-                else { 
-                  alert('something went wrong');
-                     }
-                }
-              };
-      xhttp.open("POST", "../php/commenta.php", true);
-      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      xhttp.send("idesame="+esame+"&commento="+commento+"&reply="+r);
-}
-
 function removecomment(idcomm) {
     var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
